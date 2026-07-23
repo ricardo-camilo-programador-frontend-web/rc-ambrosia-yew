@@ -1,0 +1,45 @@
+/* === Base Reset + Typography === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.7;
+    color: var(--ambrosia-bark);
+    background-color: var(--ambrosia-cream);
+    background-image: var(--grain-overlay);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-serif); color: var(--ambrosia-deep); line-height: 1.2; }
+
+a { color: var(--ambrosia-red); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--ambrosia-gold); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+:focus-visible { outline: 3px solid var(--ambrosia-gold); outline-offset: 2px; }
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--ambrosia-deep);
+    color: var(--ambrosia-cream);
+    padding: var(--space-md);
+    z-index: 9999;
+    transition: top var(--transition-fast);
+}
+.skip-link:focus { top: 0; }
+
+#article-content { scroll-margin-top: 60px; }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

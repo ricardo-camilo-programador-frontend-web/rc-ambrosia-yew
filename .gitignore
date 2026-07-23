@@ -1,27 +1,7 @@
-# Rust
+/dist
 /target
 **/*.rs.bk
 Cargo.lock
-
-# WASM
-/dist
-*.wasm
-*.wat
-
-# Trunk
-.trunk/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
+*.png.bak
 .DS_Store
-Thumbs.db
-
-# Env
-.env
-.env.local
+node_modules/
