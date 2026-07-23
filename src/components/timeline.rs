@@ -14,27 +14,31 @@ impl Component for Timeline {
     fn view(&self, _ctx: &Context<Self>) -> Html {
         let events = ambrosia::TIMELINE_EVENTS
             .iter()
-            .map(|(year, title, desc)| {
+            .enumerate()
+            .map(|(_i, (year, title, desc))| {
                 html! {
-                    <div class="timeline-entry reveal">
-                        <div class="timeline-card">
-                            <div class="timeline-year">{ year }</div>
-                            <h3>{ title }</h3>
-                            <p>{ desc }</p>
-                        </div>
-                    </div>
+                    <li class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">{ year }</div>
+                        <div class="timeline-event-title">{ title }</div>
+                        <p class="timeline-desc">{ desc }</p>
+                    </li>
                 }
             })
             .collect::<Html>();
 
         html! {
-            <section class="chapter" id="timeline">
+            <section class="chapter dark-section timeline-section" id="timeline">
                 <div class="chapter-wide">
-                    <p class="chapter-subtitle reveal">{ "A Journey" }</p>
-                    <h2 class="chapter-title reveal">{ "From Seedling to Stardom" }</h2>
-                    <div class="timeline">
+                    <p class="section-label section-label-light">
+                        <span class="section-number">{"03"}</span>
+                        <span class="section-divider"></span>
+                        <span>{"TIMELINE"}</span>
+                    </p>
+                    <h2 class="chapter-title chapter-title-light reveal">{ "A Journey" }</h2>
+                    <ol class="timeline-track">
                         { events }
-                    </div>
+                    </ol>
                 </div>
             </section>
         }

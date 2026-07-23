@@ -12,19 +12,39 @@ impl Component for AmbrosiaGold {
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
-            <section class="chapter" id="ambrosia-gold">
-                <div class="chapter-inner">
-                    <p class="chapter-subtitle reveal">{ "The Premium Tier" }</p>
-                    <h2 class="chapter-title reveal">{ "Ambrosia Gold" }</h2>
-                    <p class="reveal">
-                        { "Beyond the original variety, Ambrosia Gold represents the premium branding of this remarkable apple. As a 'club' variety, Ambrosia was historically patented and quality-controlled — only authorized growers could produce it, ensuring consistent excellence." }
-                    </p>
-                    <p class="reveal" style="margin-top: 1rem;">
-                        { "The patent expired in Canada in 2015 and in the United States in 2017, yet Ambrosia's reputation for quality endures. It remains active in other countries until as late as 2034. Today, Ambrosia stands alongside Honeycrisp and Gala as one of the varieties reshaping the apple industry — rising at the expense of the once-dominant Red Delicious." }
-                    </p>
-                    <p class="reveal" style="margin-top: 1rem; font-weight: 600; color: var(--ambrosia-red);">
-                        { "As of 2024, it is one of the most-produced apple varieties in Canada." }
-                    </p>
+            <section class="chapter dark-section gold-section" id="ambrosia-gold">
+                <div class="chapter-grid-two">
+                    <div class="gold-text-col reveal-left">
+                        <p class="section-label section-label-light">
+                            <span class="section-number">{"10"}</span>
+                            <span class="section-divider"></span>
+                            <span>{"PREMIUM TIER"}</span>
+                        </p>
+                        <h2 class="gold-title">{ "Ambrosia Gold" }</h2>
+                        <p class="gold-intro">
+                            { "As a 'club' variety, Ambrosia was patented and quality-controlled. Only authorized growers could produce it." }
+                        </p>
+                        <div class="gold-cards">
+                            <article class="premium-card reveal">
+                                <h3 class="premium-heading">{ "CLUB VARIETY" }</h3>
+                                <p>{ "Patented, quality-controlled, marketed collectively" }</p>
+                            </article>
+                            <article class="premium-card reveal">
+                                <h3 class="premium-heading">{ "PATENT STORY" }</h3>
+                                <p>{ "Canada 2015, USA 2017, Chile 2021. Others until 2034" }</p>
+                            </article>
+                            <article class="premium-card reveal">
+                                <h3 class="premium-heading">{ "MARKET RISE" }</h3>
+                                <p>{ "One of Canada's most-produced varieties as of 2024" }</p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="gold-visual-col reveal-scale">
+                        <div class="gold-crate-placeholder">
+                            <span>{ "\u{1F4E6}" }</span>
+                            <p>{ "Ambrosia Gold" }</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         }

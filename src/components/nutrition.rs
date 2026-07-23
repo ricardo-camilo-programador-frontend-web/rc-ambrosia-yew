@@ -16,22 +16,25 @@ impl Component for Nutrition {
             .iter()
             .map(|(value, label)| {
                 html! {
-                    <div class="stat-card reveal-scale">
-                        <div class="stat-value">{ value }</div>
-                        <div class="stat-label">{ label }</div>
-                    </div>
+                    <article class="stat-card reveal-scale">
+                        <strong class="stat-value">{ value }</strong>
+                        <p class="stat-label">{ label }</p>
+                    </article>
                 }
             })
             .collect::<Html>();
 
         html! {
-            <section class="chapter" id="nutrition">
-                <div class="chapter-wide">
-                    <p class="chapter-subtitle reveal">{ "By The Numbers" }</p>
-                    <h2 class="chapter-title reveal">{ "Nutrition" }</h2>
-                    <div class="nutrition-grid">
-                        { stats }
-                    </div>
+            <section class="chapter dark-section nutrition-section" id="nutrition">
+                <div class="nutrition-overlay"></div>
+                <div class="chapter-wide nutrition-content">
+                    <p class="section-label section-label-light">
+                        <span class="section-number">{"07"}</span>
+                        <span class="section-divider"></span>
+                        <span>{"NUTRITION"}</span>
+                    </p>
+                    <h2 class="chapter-title chapter-title-light reveal">{ "By The Numbers" }</h2>
+                    <div class="stat-grid">{ stats }</div>
                 </div>
             </section>
         }

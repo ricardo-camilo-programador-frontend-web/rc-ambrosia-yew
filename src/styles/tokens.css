@@ -1,4 +1,4 @@
-/* === Design Tokens — "Honeyed Divine" === */
+/* === Design Tokens — "Honeyed Divine" v2 === */
 :root {
     /* Colors */
     --ambrosia-red: #C0392B;
@@ -9,6 +9,8 @@
     --ambrosia-ivory: #FAF3E0;
     --ambrosia-bark: #5D4037;
     --ambrosia-deep: #2C1810;
+    --ambrosia-near-black: #0C0B09;
+    --ambrosia-charcoal: #1A1A1A;
     --ambrosia-sage: #7D8471;
     --ambrosia-mist: #E8E0D5;
 
@@ -39,9 +41,9 @@
     --max-width: 1200px;
 
     /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(44, 24, 16, 0.12);
-    --shadow-md: 0 4px 12px rgba(44, 24, 16, 0.15);
-    --shadow-lg: 0 8px 32px rgba(44, 24, 16, 0.18);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
 
     /* Transitions */
     --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -49,6 +51,6 @@
     --transition-fast: 0.2s var(--ease-smooth);
     --transition-base: 0.4s var(--ease-smooth);
 
-    /* Grain Texture (SVG noise) */
+    /* Grain Texture */
     --grain-overlay: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
 }

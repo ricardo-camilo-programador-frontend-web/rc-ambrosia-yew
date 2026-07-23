@@ -13,16 +13,31 @@ impl Component for Mythology {
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
-            <section class="mythology" id="mythology">
-                <div class="chapter-inner" style="position: relative; z-index: 1;">
-                    <p class="chapter-subtitle reveal">{ "Food of the Gods" }</p>
-                    <h2 class="chapter-title reveal">{ "The Divine Connection" }</h2>
-                    <p class="drop-cap reveal">
-                        { "In ancient Greek mythology, ambrosia (\u{1F00}\u{3BC}\u{3B2}\u{3C1}\u{3BF}\u{3C3}\u{3AF}\u{3B1}) was the food of the Olympian gods. Those who consumed it were said to gain immortality \u{2014} a divine sustenance reserved for the mightiest beings in the pantheon. When Wilfrid Mennell tasted the apple that had mysteriously appeared in his orchard, its honeyed sweetness and ethereal crunch evoked this ancient myth. He named it Ambrosia, forging a bridge between the mythic past and a modern agricultural miracle." }
-                    </p>
-                    <blockquote class="pull-quote reveal">
-                        { ambrosia::MYTHOLOGY_QUOTE }
-                    </blockquote>
+            <section class="chapter mythology-section dark-section" id="mythology">
+                <div class="mythology-overlay"></div>
+                <div class="chapter-grid-two mythology-content">
+                    <div class="mythology-text reveal-left">
+                        <p class="section-label section-label-light">
+                            <span class="section-number">{"05"}</span>
+                            <span class="section-divider"></span>
+                            <span>{"MYTHOLOGY"}</span>
+                        </p>
+                        <h2 class="chapter-title chapter-title-light">{ "Food of the Gods" }</h2>
+                        <p class="mythology-body">
+                            { "In ancient Greek mythology, ambrosia was the food of the Olympians, associated with longevity and immortality. When Wilfrid Mennell tasted the apple that had mysteriously appeared in his orchard, its honeyed sweetness evoked this ancient myth." }
+                        </p>
+                        <blockquote class="mythology-quote">
+                            { ambrosia::MYTHOLOGY_QUOTE }
+                        </blockquote>
+                        <div class="mythology-seal">
+                            { "ANCIENT MYTH \u{2022} MODERN AGRICULTURE" }
+                        </div>
+                    </div>
+                    <div class="mythology-visual reveal-scale">
+                        <div class="statue-placeholder">
+                            <span>{ "\u{1F3DB}\u{FE0F}" }</span>
+                        </div>
+                    </div>
                 </div>
             </section>
         }

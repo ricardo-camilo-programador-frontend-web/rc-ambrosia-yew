@@ -15,39 +15,46 @@ impl Component for Parentage {
         let pollinators = ambrosia::POLLINATORS
             .iter()
             .map(|p| {
-                html! { <span class="region-tag">{ p }</span> }
+                html! { <li class="pill-tag">{ p }</li> }
             })
             .collect::<Html>();
 
         html! {
-            <section class="chapter" id="parentage">
+            <section class="chapter light-section" id="parentage">
                 <div class="chapter-wide">
-                    <p class="chapter-subtitle reveal">{ "Bloodline" }</p>
-                    <h2 class="chapter-title reveal">{ "A Noble Parentage" }</h2>
-                    <p class="reveal" style="text-align: center; margin-bottom: 2rem;">
-                        { "Ambrosia was a chance seedling, but it grew in an orchard of giants. Genetic analysis suggests it is a natural cross between two legendary varieties:" }
+                    <p class="section-label">
+                        <span class="section-number">{"06"}</span>
+                        <span class="section-divider"></span>
+                        <span>{"PARENTAGE"}</span>
+                    </p>
+                    <h2 class="chapter-title reveal">{ "Bloodline" }</h2>
+                    <p class="chapter-intro reveal">
+                        { "Ambrosia was a chance seedling, but it grew in an orchard of giants." }
                     </p>
                     <div class="parentage-diagram reveal-scale">
                         <div class="parent-row">
                             <div class="parent-node">
+                                <span class="parent-role">{ "Suspected Father" }</span>
                                 <strong>{ ambrosia::PARENTAGE_FATHER }</strong>
-                                <p style="font-size: 0.875rem; color: var(--ambrosia-sage);">{ "Suspected Father" }</p>
                             </div>
                             <div class="parent-node">
+                                <span class="parent-role">{ "Suspected Mother" }</span>
                                 <strong>{ ambrosia::PARENTAGE_MOTHER }</strong>
-                                <p style="font-size: 0.875rem; color: var(--ambrosia-sage);">{ "Suspected Mother" }</p>
                             </div>
                         </div>
-                        <div class="parent-connector"></div>
-                        <div class="parent-node child">
-                            <strong>{ "🍎 Ambrosia" }</strong>
-                            <p style="font-size: 0.875rem; color: var(--ambrosia-red);">{ "The Result" }</p>
+                        <div class="parent-connectors">
+                            <div class="connector-line left"></div>
+                            <div class="connector-line right"></div>
+                        </div>
+                        <div class="parent-node child-node">
+                            <span class="parent-role">{ "The Result" }</span>
+                            <strong class="child-name">{ "\u{1F34E} Ambrosia" }</strong>
                         </div>
                     </div>
-                    <p class="reveal" style="text-align: center; margin-top: 2rem;">
-                        { "Pollinating partners: " }
-                    </p>
-                    <div class="region-list reveal">{ pollinators }</div>
+                    <div class="pollinator-section reveal">
+                        <p class="pollinator-label">{ "Pollinating Partners" }</p>
+                        <ul class="pill-list">{ pollinators }</ul>
+                    </div>
                 </div>
             </section>
         }

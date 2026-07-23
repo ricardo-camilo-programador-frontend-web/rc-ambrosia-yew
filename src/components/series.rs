@@ -14,41 +14,38 @@ impl Component for Series {
     fn view(&self, _ctx: &Context<Self>) -> Html {
         let items = VARIETIES.iter().enumerate().map(|(i, v)| {
             let is_current = i == AMBROSIA_INDEX;
-            let item_class = if is_current {
-                "series-item current"
-            } else {
-                "series-item future"
-            };
-
+            let pill_class = if is_current { "variety-pill current-variety" } else { "variety-pill future-variety" };
             html! {
-                <div class={item_class}>
-                    <div class="series-emoji">{ v.emoji }</div>
-                    <div class="series-name">{ v.name }</div>
+                <div class={pill_class}>
+                    <span class="variety-dot"></span>
+                    <span class="variety-name">{ v.name }</span>
                     { if is_current {
-                        html! { <><div class="series-badge">{ v.framework }</div><div style="font-size: 0.625rem; color: var(--ambrosia-sage);">{ "YOU ARE HERE" }</div></> }
+                        html! { <><span class="variety-badge">{ v.framework }</span><span class="variety-here">{ "YOU ARE HERE" }</span></> }
                     } else {
-                        html! { <div style="font-size: 0.625rem; color: var(--ambrosia-sage);">{ format!("from {}", v.origin) }</div> }
+                        html! { <span class="variety-soon">{ "Coming soon" }</span> }
                     }}
                 </div>
             }
         }).collect::<Html>();
 
         html! {
-            <section class="chapter" id="series">
+            <section class="chapter light-section" id="series">
                 <div class="chapter-wide">
-                    <p class="chapter-subtitle reveal">{ "One Apple, One Framework" }</p>
-                    <h2 class="chapter-title reveal">{ "The Series" }</h2>
-                    <p class="reveal" style="text-align: center; margin-bottom: 2rem;">
-                        { "This article is part of a series where each apple variety is built with a different framework. Ambrosia is built with " }
-                        <strong>{ "Yew + Rust + WebAssembly" }</strong>
-                        { ". The next variety will use a completely different technology." }
+                    <p class="section-label">
+                        <span class="section-number">{"11"}</span>
+                        <span class="section-divider"></span>
+                        <span>{"THE SERIES"}</span>
                     </p>
-                    <div class="series-grid">
-                        { items }
-                    </div>
-                    <p class="reveal" style="text-align: center; margin-top: 2rem;">
+                    <h2 class="chapter-title reveal">{ "One Apple, One Framework" }</h2>
+                    <p class="chapter-intro reveal">
+                        { "Each apple variety is built with a different framework. Ambrosia uses " }
+                        <strong>{ "Yew + Rust + WebAssembly" }</strong>
+                        { "." }
+                    </p>
+                    <div class="series-pills reveal">{ items }</div>
+                    <p class="hub-link reveal">
                         <a href={HUB_URL} target="_blank" rel="noopener">
-                            { "← View all varieties on the hub" }
+                            { "\u{2190} View all varieties on the hub" }
                         </a>
                     </p>
                 </div>
