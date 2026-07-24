@@ -1,6 +1,8 @@
 use rust_i18n::t;
 use yew::prelude::*;
 
+use crate::i18n::I18nContext;
+
 pub struct Navbar {
     languages: Vec<(&'static str, &'static str)>,
 }
@@ -36,34 +38,27 @@ impl Component for Navbar {
         }
     }
 
-    fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
+    fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
             Msg::LanguageChanged(lang) => {
-                rust_i18n::set_locale(&lang);
-                if let Some(window) = web_sys::window() {
-                    if let Ok(Some(storage)) = window.local_storage() {
-                        let _ = storage.set_item("ambrosia-lang", &lang);
-                    }
-                    let dir = if lang == "ar" { "rtl" } else { "ltr" };
-                    if let Some(doc) = window.document() {
-                        if let Some(html) = doc.document_element() {
-                            let _ = html.set_attribute("dir", dir);
-                        }
-                    }
+                if let Some((_ctx, handle)) = ctx.link().context::<I18nContext>(Callback::noop()) {
+                    _ctx.set_locale(&lang);
                 }
-                true
+                true // Force re-render
             }
         }
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {
-        let lang_options = self
-            .languages
-            .iter()
-            .map(|(code, label)| {
-                html! { <option value={*code}>{ *label }</option> }
-            })
-            .collect::<Html>();
+        // Get current locale from context
+        let current_locale = ctx.link()
+            .context::<I18nContext>(Callback::noop())
+            .map(|(_ctx, _handle)| _ctx.locale.clone())
+            .unwrap_or_else(|| "en".to_string());
+
+        let lang_options = self.languages.iter().map(|(code, label)| {
+            html! { <option value={*code}>{ *label }</option> }
+        }).collect::<Html>();
 
         html! {
             <nav class="navbar" role="navigation" aria-label="Main navigation">
@@ -78,6 +73,7 @@ impl Component for Navbar {
                 </ul>
                 <div class="lang-switcher">
                     <select aria-label="Select language"
+                        value={current_locale}
                         onchange={ctx.link().callback(|e: Event| {
                             let sel = e.target_dyn_into::<web_sys::HtmlSelectElement>();
                             let lang = sel.and_then(|s| Some(s.value())).unwrap_or_else(|| "en".to_string());

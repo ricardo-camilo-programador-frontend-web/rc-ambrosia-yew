@@ -1,15 +1,19 @@
 use crate::data::ambrosia;
 use rust_i18n::t;
+use crate::i18n::I18nContext;
 use yew::prelude::*;
 
-pub struct Characteristics;
+pub struct Characteristics(yew::ContextHandle<I18nContext>);
 
 impl Component for Characteristics {
     type Message = ();
     type Properties = ();
 
-    fn create(_ctx: &Context<Self>) -> Self {
-        Self
+    fn create(ctx: &Context<Self>) -> Self {
+        let handle = ctx.link().context::<I18nContext>(ctx.link().callback(|_: I18nContext| ()))
+            .map(|(_, h)| h)
+            .expect("I18nContext must be provided");
+        Self(handle)
     }
 
     fn view(&self, _ctx: &Context<Self>) -> Html {

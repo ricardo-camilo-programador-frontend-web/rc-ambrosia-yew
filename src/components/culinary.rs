@@ -1,26 +1,40 @@
 use rust_i18n::t;
+use crate::i18n::I18nContext;
 use yew::prelude::*;
 
 pub struct Culinary {
     open_index: Option<usize>,
+    _i18n_handle: yew::ContextHandle<I18nContext>,
 }
 
 pub enum CulinaryMsg {
     Toggle(usize),
+    LocaleChanged,
+}
+
+impl From<()> for CulinaryMsg {
+    fn from(_: ()) -> Self {
+        CulinaryMsg::LocaleChanged
+    }
 }
 
 impl Component for Culinary {
     type Message = CulinaryMsg;
     type Properties = ();
 
-    fn create(_ctx: &Context<Self>) -> Self {
+    fn create(ctx: &Context<Self>) -> Self {
+        let handle = ctx.link().context::<I18nContext>(ctx.link().callback(|_: I18nContext| ()))
+            .map(|(_, h)| h)
+            .expect("I18nContext must be provided");
         Self {
             open_index: Some(0),
+            _i18n_handle: handle,
         }
     }
 
     fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
+            CulinaryMsg::LocaleChanged => true,
             CulinaryMsg::Toggle(index) => {
                 if let Some(window) = web_sys::window() {
                     if let Ok(Some(storage)) = window.session_storage() {
