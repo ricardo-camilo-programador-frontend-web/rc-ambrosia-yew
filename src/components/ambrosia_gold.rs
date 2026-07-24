@@ -42,12 +42,10 @@ impl Component for AmbrosiaGold {
                             </article>
                         </div>
                     </div>
-                    <div class="gold-visual-col reveal-scale">
-                        <div class="gold-crate-placeholder">
-                            <span>{ "\u{1F4E6}" }</span>
-                            <p>{ "Ambrosia Gold" }</p>
-                        </div>
-                    </div>
+                    <figure class="gold-visual-col gold-photo reveal-scale">
+                        <img src="/images/ambrosia-orchard.jpg" alt="An Ambrosia apple in an orchard" />
+                        <figcaption>{ "Ambrosia Gold" }</figcaption>
+                    </figure>
                 </div>
             </section>
         }

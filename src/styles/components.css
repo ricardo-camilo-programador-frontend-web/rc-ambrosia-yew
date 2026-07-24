@@ -120,9 +120,14 @@
     display: flex; justify-content: center; align-items: center;
 }
 
-.hero-apple {
-    font-size: 12rem;
-    filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.6));
+.hero-photo {
+    width: min(38vw, 460px);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 48% 48% 42% 42% / 42% 42% 55% 55%;
+    border: 1px solid rgba(224, 184, 107, 0.35);
+    filter: saturate(1.08) contrast(1.05) drop-shadow(0 24px 36px rgba(0, 0, 0, 0.55));
     animation: float 4s ease-in-out infinite;
 }
 
@@ -364,6 +369,17 @@
 
 .child-name {
     color: var(--accent-red) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.parent-apple-photo {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--accent-red);
 }
 
 .parent-connectors {
@@ -402,7 +418,9 @@
 
 /* ─── Nutrition ─── */
 .nutrition-section {
-    background: var(--ambrosia-near-black);
+    background:
+        linear-gradient(90deg, rgba(12, 11, 9, 0.98) 0%, rgba(12, 11, 9, 0.83) 48%, rgba(12, 11, 9, 0.40) 100%),
+        url('/images/ambrosia-hero.jpg') center / cover no-repeat;
     position: relative;
 }
 
@@ -782,3 +800,87 @@
     color: var(--accent-gold);
     border-color: var(--accent-gold);
 }
+
+/* ─── Local editorial photography ─── */
+.chapter-visual-col,
+.mythology-visual,
+.culinary-photo,
+.gold-photo {
+    position: relative;
+    min-height: 420px;
+    margin: 0;
+    overflow: hidden;
+    background: var(--ambrosia-deep);
+    border: var(--border-gold);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-deep);
+}
+
+.chapter-visual-col > img,
+.mythology-visual > img,
+.culinary-photo > img,
+.gold-photo > img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.88) contrast(1.06);
+    transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+}
+
+.chapter-visual-col:hover > img,
+.mythology-visual:hover > img,
+.culinary-photo:hover > img,
+.gold-photo:hover > img {
+    transform: scale(1.04);
+    filter: saturate(1.03) contrast(1.04);
+}
+
+.orchard-image::after,
+.mythology-visual::after,
+.culinary-photo::after,
+.gold-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 48%, rgba(12, 11, 9, 0.72) 100%);
+}
+
+.orchard-image figcaption,
+.gold-photo figcaption {
+    position: absolute;
+    z-index: 1;
+    left: var(--space-md);
+    right: var(--space-md);
+    bottom: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    color: var(--text-on-dark);
+    font-family: var(--font-serif);
+    font-size: var(--fs-h3);
+}
+
+.orchard-image figcaption span {
+    margin-top: 0.25rem;
+    color: var(--text-on-dark-muted);
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+}
+
+.mythology-visual > img { object-position: center; filter: sepia(0.32) saturate(0.72) contrast(1.12); }
+.culinary-photo > img { object-position: center; }
+.gold-photo > img { object-position: center; }
+
+.apple-large {
+    display: block;
+    width: min(78%, 330px);
+    height: auto;
+    max-height: 390px;
+    object-fit: contain;
+    margin: var(--space-md) auto;
+    border-radius: 50%;
+    filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.55));
+}
+

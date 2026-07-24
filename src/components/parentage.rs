@@ -51,7 +51,7 @@ impl Component for Parentage {
                         </div>
                         <div class="parent-node child-node">
                             <span class="parent-role">{ t!("parentage.result_role") }</span>
-                            <strong class="child-name">{ "\u{1F34E} Ambrosia" }</strong>
+                            <strong class="child-name"><img class="parent-apple-photo" src="/images/ambrosia-gold.jpg" alt="" />{ "Ambrosia" }</strong>
                         </div>
                     </div>
                     <div class="pollinator-section reveal">

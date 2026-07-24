@@ -31,15 +31,13 @@ impl Component for Origin {
                         <blockquote class="pull-quote">{ t!("origin.quote") }</blockquote>
                         <p class="signature">{ t!("origin.signature") }</p>
                     </div>
-                    <div class="chapter-visual-col reveal-scale">
-                        <div class="orchard-image">
-                            <div class="orchard-placeholder">
-                                <span>{ "\u{1F333}" }</span>
-                                <p>{ t!("origin.orchard") }</p>
-                                <p class="orchard-location">{ t!("origin.location") }</p>
-                            </div>
-                        </div>
-                    </div>
+                    <figure class="chapter-visual-col orchard-image reveal-scale">
+                        <img src="/images/ambrosia-hero.jpg" alt="Fresh red apples harvested together" />
+                        <figcaption>
+                            <strong>{ t!("origin.orchard") }</strong>
+                            <span>{ t!("origin.location") }</span>
+                        </figcaption>
+                    </figure>
                 </div>
             </section>
         }

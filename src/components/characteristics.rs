@@ -48,7 +48,7 @@ impl Component for Characteristics {
                         <p class="char-slogan">{ t!("characteristics.slogan1") }</p>
                         <p class="char-slogan">{ t!("characteristics.slogan2") }</p>
                         <div class="apple-diagram">
-                            <div class="apple-large">{ "\u{1F34E}" }</div>
+                            <img class="apple-large" src="/images/ambrosia-gold.jpg" alt="A ripe red Ambrosia apple" />
                             <div class="annotation-line annotation-1"></div>
                             <div class="annotation-label annotation-label-1">
                                 <strong>{ t!("characteristics.flesh") }</strong>

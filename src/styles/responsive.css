@@ -49,7 +49,7 @@
 
     .hero-tagline { font-size: 1rem; }
 
-    .hero-apple { font-size: 6rem; }
+    .hero-photo { width: min(72vw, 300px); }
 
     .chapter-title { font-size: 1.75rem; }
 

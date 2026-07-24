@@ -31,9 +31,9 @@ impl Component for Mythology {
                         <blockquote class="mythology-quote">{ t!("mythology.quote") }</blockquote>
                         <div class="mythology-seal">{ t!("mythology.seal") }</div>
                     </div>
-                    <div class="mythology-visual reveal-scale">
-                        <div class="statue-placeholder"><span>{ "\u{1F3DB}\u{FE0F}" }</span></div>
-                    </div>
+                    <figure class="mythology-visual reveal-scale">
+                        <img src="/images/ambrosia-gold.jpg" alt="A red apple presented against a clean background" />
+                    </figure>
                 </div>
             </section>
         }

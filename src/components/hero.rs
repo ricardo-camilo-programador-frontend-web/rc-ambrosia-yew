@@ -37,7 +37,7 @@ impl Component for Hero {
                         <a href="#origin" class="hero-cta">{ t!("hero.cta") }</a>
                     </div>
                     <div class="hero-visual reveal-scale">
-                        <div class="hero-apple">{ "\u{1F34E}" }</div>
+                        <img class="hero-photo" src="/images/ambrosia-detail.jpg" alt="Red apple held in an orchard" />
                     </div>
                 </div>
                 <div class="scroll-indicator">

@@ -38,16 +38,16 @@
 }
 
 /* Scroll reveal classes */
-.reveal { opacity: 0; transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal { opacity: 1; transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .reveal.revealed { opacity: 1; }
 
-.reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal-left { opacity: 1; transform: none; transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .reveal-left.revealed { opacity: 1; transform: translateX(0); }
 
-.reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal-right { opacity: 1; transform: none; transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .reveal-right.revealed { opacity: 1; transform: translateX(0); }
 
-.reveal-scale { opacity: 0; transform: scale(0.9); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal-scale { opacity: 1; transform: none; transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .reveal-scale.revealed { opacity: 1; transform: scale(1); }
 
 /* Reduced motion */
@@ -57,6 +57,6 @@
         transform: none !important;
         transition: none !important;
     }
-    .hero-apple { animation: none !important; }
+    .hero-photo { animation: none !important; }
     .scroll-line { animation: none !important; }
 }
