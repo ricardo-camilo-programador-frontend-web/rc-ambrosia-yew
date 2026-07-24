@@ -42,7 +42,7 @@ impl Component for AmbrosiaGold {
                             </article>
                         </div>
                     </div>
-                    <figure class="gold-visual-col gold-photo reveal-scale">
+                    <figure class="gold-visual-col gold-photo reveal-scale relative overflow-hidden rounded-2xl shadow-editorial">
                         <img src="/images/ambrosia-orchard.jpg" alt="An Ambrosia apple in an orchard" />
                         <figcaption>{ "Ambrosia Gold" }</figcaption>
                     </figure>

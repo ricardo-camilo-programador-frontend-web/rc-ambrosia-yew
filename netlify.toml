@@ -1,5 +1,5 @@
 [build]
-  command = "curl -sSf https://dl/trunk-lang.org/init.sh | sh && export PATH=$HOME/.local/bin:$PATH && trunk build --release --dist dist"
+  command = "npm ci && npm run build:css && curl -sSf https://dl/trunk-lang.org/init.sh | sh && export PATH=$HOME/.local/bin:$PATH && trunk build --release --dist dist"
   publish = "dist"
 
 [build.environment]

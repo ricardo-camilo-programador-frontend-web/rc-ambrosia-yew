@@ -44,11 +44,11 @@ impl Component for Characteristics {
                         <h2 class="chapter-title chapter-title-light">{ t!("characteristics.title") }</h2>
                         <div class="char-list">{ items }</div>
                     </div>
-                    <div class="char-visual-col reveal-scale">
+                    <div class="char-visual-col reveal-scale relative rounded-2xl">
                         <p class="char-slogan">{ t!("characteristics.slogan1") }</p>
                         <p class="char-slogan">{ t!("characteristics.slogan2") }</p>
                         <div class="apple-diagram">
-                            <img class="apple-large" src="/images/ambrosia-gold.jpg" alt="A ripe red Ambrosia apple" />
+                            <img class="apple-large" src="/images/ambrosia-detail.jpg" alt="A ripe red Ambrosia apple" />
                             <div class="annotation-line annotation-1"></div>
                             <div class="annotation-label annotation-label-1">
                                 <strong>{ t!("characteristics.flesh") }</strong>

@@ -31,7 +31,7 @@ impl Component for Origin {
                         <blockquote class="pull-quote">{ t!("origin.quote") }</blockquote>
                         <p class="signature">{ t!("origin.signature") }</p>
                     </div>
-                    <figure class="chapter-visual-col orchard-image reveal-scale">
+                    <figure class="chapter-visual-col orchard-image reveal-scale relative overflow-hidden rounded-2xl shadow-editorial">
                         <img src="/images/ambrosia-hero.jpg" alt="Fresh red apples harvested together" />
                         <figcaption>
                             <strong>{ t!("origin.orchard") }</strong>

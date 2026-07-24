@@ -106,7 +106,7 @@ impl Component for Culinary {
                         <h2 class="chapter-title chapter-title-light">{ t!("culinary.title") }</h2>
                         <div class="accordion">{ cards }</div>
                     </div>
-                    <figure class="culinary-visual-col culinary-photo reveal-scale">
+                    <figure class="culinary-visual-col culinary-photo reveal-scale relative overflow-hidden rounded-2xl shadow-editorial">
                         <img src="/images/ambrosia-culinary.jpg" alt="Fresh Ambrosia apple ready to enjoy" />
                     </figure>
                 </div>
