@@ -1,4 +1,4 @@
-use crate::data::ambrosia;
+use rust_i18n::t;
 use yew::prelude::*;
 
 #[allow(clippy::module_inception)]
@@ -20,21 +20,19 @@ impl Component for Origin {
                         <p class="section-label">
                             <span class="section-number">{"02"}</span>
                             <span class="section-divider"></span>
-                            <span>{"ORIGIN STORY"}</span>
+                            <span>{ t!("origin.label") }</span>
                         </p>
-                        <h2 class="chapter-title">{ "The Chance Seedling" }</h2>
-                        <p class="drop-cap">{ ambrosia::ORIGIN_STORY }</p>
-                        <blockquote class="pull-quote">
-                            { "\u{201C}Pickers, who seldom eat apples, loved Ambrosia, and stripped the tree before the rest of the orchard was ready.\u{201D}" }
-                        </blockquote>
-                        <p class="signature">{ "\u{2014} Wilfrid Mennell, Cawston, BC" }</p>
+                        <h2 class="chapter-title">{ t!("origin.title") }</h2>
+                        <p class="drop-cap">{ t!("origin.story") }</p>
+                        <blockquote class="pull-quote">{ t!("origin.quote") }</blockquote>
+                        <p class="signature">{ t!("origin.signature") }</p>
                     </div>
                     <div class="chapter-visual-col reveal-scale">
                         <div class="orchard-image">
                             <div class="orchard-placeholder">
-                                <span>{"\u{1F333}"}</span>
-                                <p>{ "Mennell Orchard" }</p>
-                                <p class="orchard-location">{ "Similkameen Valley, British Columbia" }</p>
+                                <span>{ "\u{1F333}" }</span>
+                                <p>{ t!("origin.orchard") }</p>
+                                <p class="orchard-location">{ t!("origin.location") }</p>
                             </div>
                         </div>
                     </div>

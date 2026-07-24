@@ -1,4 +1,5 @@
 use crate::data::ambrosia;
+use rust_i18n::t;
 use yew::prelude::*;
 
 pub struct Parentage;
@@ -25,20 +26,18 @@ impl Component for Parentage {
                     <p class="section-label">
                         <span class="section-number">{"06"}</span>
                         <span class="section-divider"></span>
-                        <span>{"PARENTAGE"}</span>
+                        <span>{ t!("parentage.label") }</span>
                     </p>
-                    <h2 class="chapter-title reveal">{ "Bloodline" }</h2>
-                    <p class="chapter-intro reveal">
-                        { "Ambrosia was a chance seedling, but it grew in an orchard of giants." }
-                    </p>
+                    <h2 class="chapter-title reveal">{ t!("parentage.title") }</h2>
+                    <p class="chapter-intro reveal">{ t!("parentage.intro") }</p>
                     <div class="parentage-diagram reveal-scale">
                         <div class="parent-row">
                             <div class="parent-node">
-                                <span class="parent-role">{ "Suspected Father" }</span>
+                                <span class="parent-role">{ t!("parentage.father_role") }</span>
                                 <strong>{ ambrosia::PARENTAGE_FATHER }</strong>
                             </div>
                             <div class="parent-node">
-                                <span class="parent-role">{ "Suspected Mother" }</span>
+                                <span class="parent-role">{ t!("parentage.mother_role") }</span>
                                 <strong>{ ambrosia::PARENTAGE_MOTHER }</strong>
                             </div>
                         </div>
@@ -47,12 +46,12 @@ impl Component for Parentage {
                             <div class="connector-line right"></div>
                         </div>
                         <div class="parent-node child-node">
-                            <span class="parent-role">{ "The Result" }</span>
+                            <span class="parent-role">{ t!("parentage.result_role") }</span>
                             <strong class="child-name">{ "\u{1F34E} Ambrosia" }</strong>
                         </div>
                     </div>
                     <div class="pollinator-section reveal">
-                        <p class="pollinator-label">{ "Pollinating Partners" }</p>
+                        <p class="pollinator-label">{ t!("parentage.pollinators") }</p>
                         <ul class="pill-list">{ pollinators }</ul>
                     </div>
                 </div>

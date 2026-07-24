@@ -1,4 +1,4 @@
-use crate::data::ambrosia;
+use rust_i18n::t;
 use yew::prelude::*;
 
 pub struct Mythology;
@@ -20,23 +20,15 @@ impl Component for Mythology {
                         <p class="section-label section-label-light">
                             <span class="section-number">{"05"}</span>
                             <span class="section-divider"></span>
-                            <span>{"MYTHOLOGY"}</span>
+                            <span>{ t!("mythology.label") }</span>
                         </p>
-                        <h2 class="chapter-title chapter-title-light">{ "Food of the Gods" }</h2>
-                        <p class="mythology-body">
-                            { "In ancient Greek mythology, ambrosia was the food of the Olympians, associated with longevity and immortality. When Wilfrid Mennell tasted the apple that had mysteriously appeared in his orchard, its honeyed sweetness evoked this ancient myth." }
-                        </p>
-                        <blockquote class="mythology-quote">
-                            { ambrosia::MYTHOLOGY_QUOTE }
-                        </blockquote>
-                        <div class="mythology-seal">
-                            { "ANCIENT MYTH \u{2022} MODERN AGRICULTURE" }
-                        </div>
+                        <h2 class="chapter-title chapter-title-light">{ t!("mythology.title") }</h2>
+                        <p class="mythology-body">{ t!("mythology.body") }</p>
+                        <blockquote class="mythology-quote">{ t!("mythology.quote") }</blockquote>
+                        <div class="mythology-seal">{ t!("mythology.seal") }</div>
                     </div>
                     <div class="mythology-visual reveal-scale">
-                        <div class="statue-placeholder">
-                            <span>{ "\u{1F3DB}\u{FE0F}" }</span>
-                        </div>
+                        <div class="statue-placeholder"><span>{ "\u{1F3DB}\u{FE0F}" }</span></div>
                     </div>
                 </div>
             </section>

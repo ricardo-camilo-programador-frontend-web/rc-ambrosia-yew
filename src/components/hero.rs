@@ -1,3 +1,4 @@
+use rust_i18n::t;
 use yew::prelude::*;
 
 pub struct Hero;
@@ -21,27 +22,23 @@ impl Component for Hero {
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
                     <div class="hero-text reveal">
-                        <p class="section-label">
+                        <p class="section-label section-label-light">
                             <span class="section-number">{"01"}</span>
                             <span class="section-divider"></span>
-                            <span>{"FOOD OF THE GODS"}</span>
+                            <span>{ t!("hero.label") }</span>
                         </p>
                         <h1 class="hero-title">{ "Ambrosia" }</h1>
-                        <p class="hero-subtitle">{ "Food of the Gods" }</p>
-                        <p class="hero-tagline">
-                            { "A chance seedling from British Columbia, named after the mythical food that granted immortality." }
-                        </p>
-                        <a href="#origin" class="hero-cta">
-                            { "START THE STORY" }
-                        </a>
+                        <p class="hero-subtitle">{ t!("hero.subtitle") }</p>
+                        <p class="hero-tagline">{ t!("hero.tagline") }</p>
+                        <a href="#origin" class="hero-cta">{ t!("hero.cta") }</a>
                     </div>
                     <div class="hero-visual reveal-scale">
-                        <div class="hero-apple">{"\u{1F34E}"}</div>
+                        <div class="hero-apple">{ "\u{1F34E}" }</div>
                     </div>
                 </div>
                 <div class="scroll-indicator">
                     <div class="scroll-line"></div>
-                    <span>{"Scroll to explore"}</span>
+                    <span>{ t!("hero.scroll") }</span>
                 </div>
             </section>
         }

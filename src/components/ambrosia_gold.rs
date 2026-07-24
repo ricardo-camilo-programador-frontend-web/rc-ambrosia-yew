@@ -1,3 +1,4 @@
+use rust_i18n::t;
 use yew::prelude::*;
 
 pub struct AmbrosiaGold;
@@ -18,24 +19,22 @@ impl Component for AmbrosiaGold {
                         <p class="section-label section-label-light">
                             <span class="section-number">{"10"}</span>
                             <span class="section-divider"></span>
-                            <span>{"PREMIUM TIER"}</span>
+                            <span>{ t!("gold.label") }</span>
                         </p>
-                        <h2 class="gold-title">{ "Ambrosia Gold" }</h2>
-                        <p class="gold-intro">
-                            { "As a 'club' variety, Ambrosia was patented and quality-controlled. Only authorized growers could produce it." }
-                        </p>
+                        <h2 class="gold-title">{ t!("gold.title") }</h2>
+                        <p class="gold-intro">{ t!("gold.intro") }</p>
                         <div class="gold-cards">
                             <article class="premium-card reveal">
-                                <h3 class="premium-heading">{ "CLUB VARIETY" }</h3>
-                                <p>{ "Patented, quality-controlled, marketed collectively" }</p>
+                                <h3 class="premium-heading">{ t!("gold.club") }</h3>
+                                <p>{ t!("gold.club_desc") }</p>
                             </article>
                             <article class="premium-card reveal">
-                                <h3 class="premium-heading">{ "PATENT STORY" }</h3>
-                                <p>{ "Canada 2015, USA 2017, Chile 2021. Others until 2034" }</p>
+                                <h3 class="premium-heading">{ t!("gold.patent") }</h3>
+                                <p>{ t!("gold.patent_desc") }</p>
                             </article>
                             <article class="premium-card reveal">
-                                <h3 class="premium-heading">{ "MARKET RISE" }</h3>
-                                <p>{ "One of Canada's most-produced varieties as of 2024" }</p>
+                                <h3 class="premium-heading">{ t!("gold.market") }</h3>
+                                <p>{ t!("gold.market_desc") }</p>
                             </article>
                         </div>
                     </div>

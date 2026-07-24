@@ -1,4 +1,4 @@
-use crate::data::ambrosia;
+use rust_i18n::t;
 use yew::prelude::*;
 
 pub struct Culinary {
@@ -46,9 +46,25 @@ impl Component for Culinary {
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {
-        let items = ambrosia::CULINARY_USES.iter().enumerate().map(|(i, (_icon, title, desc))| {
+        let keys = [
+            "culinary.fresh_title",
+            "culinary.fresh_desc",
+            "culinary.salads_title",
+            "culinary.salads_desc",
+            "culinary.baking_title",
+            "culinary.baking_desc",
+            "culinary.cider_title",
+            "culinary.cider_desc",
+            "culinary.cheese_title",
+            "culinary.cheese_desc",
+        ];
+        let items: Vec<(String, String)> = (0..5)
+            .map(|i| (t!(keys[i * 2]).to_string(), t!(keys[i * 2 + 1]).to_string()))
+            .collect();
+
+        let cards = items.into_iter().enumerate().map(|(i, (title, desc))| {
             let is_open = self.open_index == Some(i);
-            let content_class = if is_open { "accordion-content open" } else { "accordion-content" };
+            let cls = if is_open { "accordion-content open" } else { "accordion-content" };
             html! {
                 <div class="accordion-card reveal">
                     <button class="accordion-header"
@@ -58,9 +74,7 @@ impl Component for Culinary {
                         <span class="accordion-title">{ title }</span>
                         <span class={if is_open { "accordion-icon open" } else { "accordion-icon" }}>{ "+" }</span>
                     </button>
-                    <div class={content_class}>
-                        <p>{ desc }</p>
-                    </div>
+                    <div class={cls}><p>{ desc }</p></div>
                 </div>
             }
         }).collect::<Html>();
@@ -73,15 +87,13 @@ impl Component for Culinary {
                         <p class="section-label section-label-light">
                             <span class="section-number">{"09"}</span>
                             <span class="section-divider"></span>
-                            <span>{"CULINARY"}</span>
+                            <span>{ t!("culinary.label") }</span>
                         </p>
-                        <h2 class="chapter-title chapter-title-light">{ "How To Enjoy" }</h2>
-                        <div class="accordion">{ items }</div>
+                        <h2 class="chapter-title chapter-title-light">{ t!("culinary.title") }</h2>
+                        <div class="accordion">{ cards }</div>
                     </div>
                     <div class="culinary-visual-col">
-                        <div class="culinary-visual-placeholder">
-                            <span>{ "\u{1F36F}\u{FE0F}" }</span>
-                        </div>
+                        <div class="culinary-visual-placeholder"><span>{ "\u{1F36F}\u{FE0F}" }</span></div>
                     </div>
                 </div>
             </section>

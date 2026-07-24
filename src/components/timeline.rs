@@ -1,4 +1,5 @@
 use crate::data::ambrosia;
+use rust_i18n::t;
 use yew::prelude::*;
 
 pub struct Timeline;
@@ -14,8 +15,7 @@ impl Component for Timeline {
     fn view(&self, _ctx: &Context<Self>) -> Html {
         let events = ambrosia::TIMELINE_EVENTS
             .iter()
-            .enumerate()
-            .map(|(_i, (year, title, desc))| {
+            .map(|(year, title, desc)| {
                 html! {
                     <li class="timeline-item reveal">
                         <div class="timeline-dot"></div>
@@ -33,12 +33,10 @@ impl Component for Timeline {
                     <p class="section-label section-label-light">
                         <span class="section-number">{"03"}</span>
                         <span class="section-divider"></span>
-                        <span>{"TIMELINE"}</span>
+                        <span>{ t!("timeline.label") }</span>
                     </p>
-                    <h2 class="chapter-title chapter-title-light reveal">{ "A Journey" }</h2>
-                    <ol class="timeline-track">
-                        { events }
-                    </ol>
+                    <h2 class="chapter-title chapter-title-light reveal">{ t!("timeline.title") }</h2>
+                    <ol class="timeline-track">{ events }</ol>
                 </div>
             </section>
         }
