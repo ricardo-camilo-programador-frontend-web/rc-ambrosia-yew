@@ -1,0 +1,11 @@
+{
+  "name": "rc-ambrosia-yew",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./src/styles/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/tailwind.css -o ./src/styles/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

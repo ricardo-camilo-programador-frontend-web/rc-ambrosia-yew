@@ -1,79 +1,90 @@
-# 🍎 Ambrosia — Landing Page
+# 🍎 rc-ambrosia-yew — Ambrosia: Food of the Gods
 
-> **Food of the Gods** — A thematic landing page about the Ambrosia apple variety, built with Yew + Rust + WebAssembly.
+> An interactive editorial article about the Ambrosia apple variety, built with **Yew + Rust + WebAssembly**.
+
+![Ambrosia](https://img.shields.io/badge/Ambrosia-Food%20of%20the%20Gods-C0392B?style=for-the-badge)
 
 ## About
 
-The Ambrosia apple was discovered as a chance seedling in British Columbia, Canada. Its name comes from Greek mythology — _ambrosia_ being the food of the gods, granting immortality to those who consumed it.
+This is the first project in the **Apple Varieties** series — a collection where each apple variety is built with a different web framework. The hub lives at [click-on-the-malus-domestica-ide.netlify.app/apple-varieties](https://click-on-the-malus-domestica-ide.netlify.app/apple-varieties).
 
-This project is part of a series exploring apple varieties through modern web technology.
+The Ambrosia apple was a chance seedling discovered in the early 1990s in British Columbia, Canada. Named after the mythical food of the Greek gods, it is now one of the most-produced apple varieties in Canada.
 
-## Stack
+## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Language | Rust |
-| Framework | [Yew](https://yew.rs/) |
-| Build | [Trunk](https://trunkrs.dev/) |
-| Target | WebAssembly (wasm32-unknown-unknown) |
+- **Rust** — Systems programming language
+- **Yew 0.21** — Component framework for Rust targeting WebAssembly
+- **Trunk** — WASM web application builder
+- **web-sys / wasm-bindgen** — Web API bindings
+- **rust-i18n** — Internationalization (20 languages)
+
+## Features
+
+- 📖 **11 Chapters** — Scrollytelling editorial: Origin, Timeline, Characteristics, Mythology, Parentage, Nutrition, World Map, Culinary, Ambrosia Gold, Series
+- 🌍 **20 Languages** — Full i18n support for the world's most spoken languages
+- 📱 **PWA** — Installable, offline-capable
+- ♿ **Accessible** — WCAG AA, keyboard navigation, screen reader support, RTL for Arabic
+- ⚡ **Performant** — Lighthouse 90+ target, lazy scroll reveals
+- 🎨 **"Honeyed Divine" palette** — Hand-crafted design system
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Rust](https://rustup.rs/) (stable)
-- [Trunk](https://trunkrs.dev/): `cargo install trunk wasm-bindgen-cli`
-- wasm target: `rustup target add wasm32-unknown-unknown`
+```bash
+rustup target add wasm32-unknown-unknown
+cargo install trunk
+```
 
-### Run
+### Development
 
 ```bash
 trunk serve
-# Open http://localhost:8080
 ```
 
-### Build for Production
+### Build
 
 ```bash
 trunk build --release
 ```
 
-Output goes to `dist/`.
-
 ## Project Structure
 
 ```
-rc-ambrosia-yew/
-├── Cargo.toml
-├── Trunk.toml
-├── index.html
-├── src/
-│   ├── main.rs           # Entry point
-│   ├── app.rs            # Root App component
-│   └── components/
-│       ├── hero.rs       # Hero section
-│       ├── history.rs    # Origin & discovery
-│       ├── traits.rs     # Visual & taste characteristics
-│       └── footer.rs     # Footer
-└── README.md
+src/
+├── main.rs                 # Entry point
+├── app.rs                  # Root component
+├── components/             # 13 components (11 chapters + navbar + footer)
+├── hooks/                  # Scroll reveal + reading progress
+├── data/                   # Ambrosia + varieties data
+├── i18n/                   # rust-i18n config + 20 locale files
+│   └── locales/
+└── styles/                 # 6 CSS files (tokens, base, editorial, components, animations, responsive)
 ```
 
-## Roadmap
+## Design Inspiration
 
-- [x] Project scaffold
-- [ ] Hero section with Ambrosia imagery
-- [ ] Origin story (British Columbia, chance seedling)
-- [ ] Characteristics (color, taste, texture, season)
-- [ ] Cultivation & growing regions
-- [ ] Nutritional information
-- [ ] Multi-language support (PT-BR, EN, ES)
-- [ ] PWA capabilities
-- [ ] SEO optimization
+- [Agriculture & Farm Landing](https://www.figma.com/community/file/1523251924601311280) — Figma Community
+- [Greenvest — Sustainable Agriculture](https://dribbble.com/) — Halo Design Studio
+- Apple Product Pages — scrollytelling reference
+
+## Requirements Checklist
+
+- [x] counter.dev analytics
+- [x] 20 languages (i18n)
+- [x] PWA + localStorage/sessionStorage
+- [x] GitHub link in footer
+- [x] Clean Code (DRY, Object Calisthenics, self-documented)
+- [x] No unused imports
+- [x] Responsive (320px → 1920px)
+- [x] RTL support for Arabic
+
+## Author
+
+**Ricardo Camilo**
+- GitHub: [ricardo-camilo-programador-frontend-web](https://github.com/ricardo-camilo-programador-frontend-web)
+- LinkedIn: [ricardo-camilo-programador-frontend-web-developer](https://www.linkedin.com/in/ricardo-camilo-programador-frontend-web-developer)
 
 ## License
 
-MIT
-
----
-
-_Part of the **rc-ambrosia-yew** series — one project per apple variety._
+MIT © 2026 Ricardo Camilo

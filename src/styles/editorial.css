@@ -1,0 +1,205 @@
+/* === Editorial Article Styles v3 === */
+
+/* Chapter — base section */
+.chapter {
+    padding: var(--space-3xl) var(--space-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-wide {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* Dark sections */
+.dark-section {
+    background: var(--ambrosia-charcoal);
+    color: var(--text-on-dark);
+}
+
+.dark-section.deeper { background: var(--ambrosia-near-black); }
+.dark-section.warm { background: var(--ambrosia-deep); }
+
+/* Light sections */
+.light-section {
+    background: var(--ambrosia-ivory);
+    color: var(--text-on-light);
+}
+
+.light-section.warmer { background: var(--ambrosia-cream); }
+
+/* Two-column grid */
+.chapter-grid-two {
+    display: grid;
+    grid-template-columns: var(--grid-two);
+    gap: var(--space-2xl);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* Map grid (asymmetric) */
+.chapter-grid-map {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* Section labels — "01 — FOOD OF THE GODS" */
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--fs-label);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: var(--space-sm);
+}
+
+.section-label-light { color: var(--accent-gold); }
+
+.section-number {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    color: var(--accent-gold);
+}
+
+.section-divider {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent-gold);
+}
+
+/* Chapter titles */
+.chapter-title {
+    font-size: var(--fs-h1);
+    color: var(--text-on-light);
+    margin-bottom: var(--space-md);
+}
+
+.chapter-title-light {
+    color: var(--text-on-dark);
+}
+
+/* Drop cap */
+.drop-cap::first-letter {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1;
+    float: left;
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+/* Pull quotes */
+.pull-quote {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h3);
+    font-style: italic;
+    color: var(--text-on-light);
+    border-left: 3px solid var(--accent-gold);
+    padding-left: var(--space-md);
+    margin: var(--space-md) 0;
+    line-height: 1.5;
+}
+
+.dark-section .pull-quote {
+    color: var(--accent-gold);
+    border-left-color: var(--accent-gold);
+}
+
+/* Signature */
+.signature {
+    font-size: var(--fs-small);
+    color: var(--text-on-light-muted);
+    font-style: italic;
+}
+
+.dark-section .signature { color: var(--text-on-dark-muted); }
+
+/* Intro text */
+.chapter-intro {
+    font-size: 1.125rem;
+    color: var(--text-on-light-muted);
+    max-width: 60ch;
+    margin-bottom: var(--space-lg);
+}
+
+.dark-section .chapter-intro { color: var(--text-on-dark-muted); }
+
+/* Visual columns */
+.chapter-visual-col {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* Slogan text */
+.char-slogan {
+    font-family: var(--font-serif);
+    font-size: var(--fs-h3);
+    color: var(--accent-gold);
+    font-style: italic;
+    margin-bottom: var(--space-md);
+}
+
+/* Mythology */
+.mythology-section { background: var(--ambrosia-bark); position: relative; }
+
+.mythology-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(92,64,55,0.95) 0%, rgba(44,24,16,0.85) 100%);
+    z-index: 1;
+}
+
+.mythology-content { position: relative; z-index: 2; }
+
+.mythology-quote {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--accent-gold);
+    line-height: 1.7;
+    margin: var(--space-md) 0;
+}
+
+.mythology-seal {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    border: var(--border-gold-strong);
+    border-radius: var(--radius-pill);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-top: var(--space-md);
+}
+
+/* Reading progress bar */
+.reading-progress {
+    position: fixed; top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-red));
+    z-index: 9999;
+    transition: width 0.1s linear;
+}
+
+/* Skip link */
+.skip-link {
+    position: absolute; left: -9999px;
+    z-index: 10000;
+}
+
+.skip-link:focus {
+    left: 1rem; top: 1rem;
+    background: var(--accent-gold);
+    color: var(--ambrosia-near-black);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius);
+    font-weight: 600;
+}

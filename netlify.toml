@@ -1,0 +1,14 @@
+[build]
+  command = "chmod +x scripts/build-web.sh && ./scripts/build-web.sh"
+  publish = "dist"
+
+[build.environment]
+  RUST_VERSION = "stable"
+
+[build.processing]
+  skip_processing = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

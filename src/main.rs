@@ -1,7 +1,5 @@
-use yew::prelude::*;
-
-mod app;
+use rc_ambrosia_yew::app::App;
 
 fn main() {
-    yew::Renderer::<app::App>::new().render();
+    yew::Renderer::<App>::new().render();
 }

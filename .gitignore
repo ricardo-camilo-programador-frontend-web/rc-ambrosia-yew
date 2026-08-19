@@ -1,27 +1,9 @@
-# Rust
+/dist
 /target
 **/*.rs.bk
-Cargo.lock
-
-# WASM
-/dist
-*.wasm
-*.wat
-
-# Trunk
-.trunk/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
+*.png.bak
 .DS_Store
-Thumbs.db
+node_modules/
 
-# Env
-.env
-.env.local
+# Local Netlify folder
+.netlify
