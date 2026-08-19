@@ -1,6 +1,5 @@
 /// All data about the Ambrosia apple variety.
 /// Source: Wikipedia, OrangePippin, OrganicAmbrosiaApple.ca
-
 pub const NAME: &str = "Ambrosia";
 pub const EMOJI: &str = "🍎";
 pub const TAGLINE: &str = "Food of the Gods";

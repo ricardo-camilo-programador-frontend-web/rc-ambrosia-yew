@@ -41,7 +41,7 @@ impl Component for Navbar {
     fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
             Msg::LanguageChanged(lang) => {
-                if let Some((_ctx, handle)) = ctx.link().context::<I18nContext>(Callback::noop()) {
+                if let Some((_ctx, _handle)) = ctx.link().context::<I18nContext>(Callback::noop()) {
                     _ctx.set_locale(&lang);
                 }
                 true // Force re-render
@@ -51,14 +51,19 @@ impl Component for Navbar {
 
     fn view(&self, ctx: &Context<Self>) -> Html {
         // Get current locale from context
-        let current_locale = ctx.link()
+        let current_locale = ctx
+            .link()
             .context::<I18nContext>(Callback::noop())
             .map(|(_ctx, _handle)| _ctx.locale.clone())
             .unwrap_or_else(|| "en".to_string());
 
-        let lang_options = self.languages.iter().map(|(code, label)| {
-            html! { <option value={*code}>{ *label }</option> }
-        }).collect::<Html>();
+        let lang_options = self
+            .languages
+            .iter()
+            .map(|(code, label)| {
+                html! { <option value={*code}>{ *label }</option> }
+            })
+            .collect::<Html>();
 
         html! {
             <nav class="navbar" role="navigation" aria-label="Main navigation">
@@ -76,7 +81,7 @@ impl Component for Navbar {
                         value={current_locale}
                         onchange={ctx.link().callback(|e: Event| {
                             let sel = e.target_dyn_into::<web_sys::HtmlSelectElement>();
-                            let lang = sel.and_then(|s| Some(s.value())).unwrap_or_else(|| "en".to_string());
+                            let lang = sel.map(|s| s.value()).unwrap_or_else(|| "en".to_string());
                             Msg::LanguageChanged(lang)
                         })}>
                         { lang_options }

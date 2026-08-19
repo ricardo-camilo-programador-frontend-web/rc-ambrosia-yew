@@ -21,7 +21,7 @@ impl Component for App {
         Self { locale }
     }
 
-    fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
+    fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
             Msg::SetLocale(lang) => {
                 rust_i18n::set_locale(&lang);

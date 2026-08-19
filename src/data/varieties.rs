@@ -1,6 +1,5 @@
 /// All 31 apple varieties from the series hub.
 /// Source: click-on-the-malus-domestica-ide.netlify.app/apple-varieties
-
 pub struct Variety {
     pub name: &'static str,
     pub emoji: &'static str,

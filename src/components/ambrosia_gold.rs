@@ -1,7 +1,8 @@
-use rust_i18n::t;
 use crate::i18n::I18nContext;
+use rust_i18n::t;
 use yew::prelude::*;
 
+#[allow(dead_code)]
 pub struct AmbrosiaGold(yew::ContextHandle<I18nContext>);
 
 impl Component for AmbrosiaGold {
@@ -9,7 +10,9 @@ impl Component for AmbrosiaGold {
     type Properties = ();
 
     fn create(ctx: &Context<Self>) -> Self {
-        let handle = ctx.link().context::<I18nContext>(ctx.link().callback(|_: I18nContext| ()))
+        let handle = ctx
+            .link()
+            .context::<I18nContext>(ctx.link().callback(|_: I18nContext| ()))
             .map(|(_, h)| h)
             .expect("I18nContext must be provided");
         Self(handle)

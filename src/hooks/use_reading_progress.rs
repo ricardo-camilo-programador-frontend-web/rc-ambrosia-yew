@@ -43,9 +43,9 @@ pub fn setup_reading_progress() {
         };
 
         let max_scroll = (doc_height - scroll_height).max(1.0);
-        let progress = ((scroll_y / max_scroll) * 100.0).min(100.0).max(0.0);
+        let progress = ((scroll_y / max_scroll) * 100.0).clamp(0.0, 100.0);
 
-        bar.set_attribute("style", &format!("width: {:.0}%", progress));
+        let _ = bar.set_attribute("style", &format!("width: {:.0}%", progress));
 
         if let Ok(Some(storage)) = win.local_storage() {
             let _ = storage.set_item("ambrosia-reading-progress", &format!("{:.0}", progress));
