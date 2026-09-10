@@ -86,31 +86,55 @@
 
 /* Drop cap */
 .drop-cap::first-letter {
-    font-family: var(--font-serif);
-    font-size: 4rem;
-    line-height: 1;
+    font-family: 'Cormorant Garamond', var(--font-serif);
+    font-size: 5.5rem;
+    line-height: 0.8;
     float: left;
-    margin-right: 0.5rem;
-    margin-top: 0.25rem;
+    margin-right: 0.75rem;
+    margin-top: 0.15rem;
     color: var(--accent-red);
     font-weight: 700;
+    text-shadow: 2px 2px 0 rgba(224, 184, 107, 0.15);
 }
 
 /* Pull quotes */
 .pull-quote {
-    font-family: var(--font-serif);
-    font-size: var(--fs-h3);
+    font-family: 'Cormorant Garamond', var(--font-serif);
+    font-size: var(--fs-pull-quote);
     font-style: italic;
     color: var(--text-on-light);
-    border-left: 3px solid var(--accent-gold);
-    padding-left: var(--space-md);
-    margin: var(--space-md) 0;
-    line-height: 1.5;
+    border-left: 4px solid var(--accent-gold);
+    padding: var(--space-md) var(--space-lg);
+    margin: var(--space-lg) 0;
+    line-height: 1.4;
+    position: relative;
+    background: var(--accent-gold-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
 }
 
 .dark-section .pull-quote {
     color: var(--accent-gold);
     border-left-color: var(--accent-gold);
+}
+
+/* Kicker — small bold text above titles */
+.kicker {
+    font-size: var(--fs-kicker);
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: var(--space-xs);
+    display: block;
+}
+
+/* Section transition divider */
+.section-transition {
+    width: 60px;
+    height: 2px;
+    background: var(--gradient-gold-shimmer);
+    margin: var(--space-3xl) auto;
+    border: none;
 }
 
 /* Signature */

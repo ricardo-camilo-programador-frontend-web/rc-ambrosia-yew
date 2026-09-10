@@ -50,13 +50,15 @@
 .hero {
     min-height: 100vh;
     display: flex; align-items: center;
-    background: var(--ambrosia-near-black);
+    background: var(--gradient-hero);
     position: relative; overflow: hidden;
 }
 
 .hero-overlay {
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 70% 50%, transparent 0%, var(--ambrosia-near-black) 80%);
+    background:
+        radial-gradient(ellipse at 70% 50%, transparent 0%, var(--ambrosia-near-black) 75%),
+        radial-gradient(circle at 20% 80%, rgba(192,57,43,0.08) 0%, transparent 50%);
     z-index: 1;
 }
 
@@ -72,11 +74,16 @@
 .hero-text { flex: 1; max-width: 560px; }
 
 .hero-title {
-    font-family: var(--font-serif);
+    font-family: 'Cormorant Garamond', var(--font-serif);
     font-size: var(--fs-hero);
     color: var(--text-on-dark);
     margin: var(--space-sm) 0 var(--space-xs);
-    line-height: 1.05;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    background: var(--gradient-gold-shimmer);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-subtitle {
@@ -111,8 +118,9 @@
 
 .hero-cta:hover {
     background: var(--ambrosia-red);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(192, 57, 43, 0.4);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(192, 57, 43, 0.5);
 }
 
 .hero-visual {
@@ -129,6 +137,17 @@
     border: 1px solid rgba(224, 184, 107, 0.35);
     filter: saturate(1.08) contrast(1.05) drop-shadow(0 24px 36px rgba(0, 0, 0, 0.55));
     animation: float 4s ease-in-out infinite;
+}
+
+.hero-photo-glow {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(circle, rgba(224,184,107,0.12) 0%, transparent 70%);
+    z-index: -1;
+    animation: float 6s ease-in-out infinite reverse;
 }
 
 .scroll-indicator {
@@ -175,6 +194,44 @@
 
 /* ─── Timeline ─── */
 .timeline-section { background: var(--ambrosia-deep); }
+
+/* Sticky scroll container for timeline */
+.sticky-scroll-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    min-height: 100vh;
+}
+
+.sticky-scroll-figure {
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sticky-scroll-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding: var(--space-3xl) 0;
+}
+
+.scroll-step {
+    opacity: 0.3;
+    transform: translateY(20px);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+    padding: var(--space-lg);
+    border-inline-start: 2px solid rgba(224, 184, 107, 0.15);
+}
+
+.scroll-step.active {
+    opacity: 1;
+    transform: translateY(0);
+    border-inline-start-color: var(--accent-gold);
+}
 
 .timeline-track {
     display: flex; gap: var(--space-lg);
@@ -661,6 +718,46 @@
 }
 
 .gold-crate-placeholder span { font-size: 5rem; }
+
+/* Gold section premium shimmer */
+.gold-section {
+    background: var(--ambrosia-near-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -50%; right: -50%; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(224,184,107,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.gold-title {
+    font-family: 'Cormorant Garamond', var(--font-serif);
+    font-size: var(--fs-h1);
+    background: var(--gradient-gold-shimmer);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-md);
+}
+
+.premium-card {
+    padding: var(--space-lg) var(--space-md);
+    border: var(--border-gold);
+    border-radius: var(--radius-lg);
+    background: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+.premium-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-gold);
+}
 
 /* ─── Series ─── */
 .series-pills {
