@@ -19,16 +19,31 @@ impl Component for Timeline {
         Self(handle)
     }
 
+    fn rendered(&mut self, _ctx: &Context<Self>, _first_render: bool) {
+        crate::hooks::use_sticky_scroll::setup_sticky_scroll();
+    }
+
     fn view(&self, _ctx: &Context<Self>) -> Html {
-        let events = ambrosia::TIMELINE_EVENTS
+        let step_cards = ambrosia::TIMELINE_EVENTS
             .iter()
             .map(|(year, title, desc)| {
                 html! {
-                    <li class="timeline-item reveal">
+                    <div class="scroll-step">
+                        <div class="timeline-year">{ year }</div>
+                        <h3 class="timeline-event-title">{ title }</h3>
+                        <p class="timeline-desc">{ desc }</p>
+                    </div>
+                }
+            })
+            .collect::<Html>();
+
+        let timeline_dots = ambrosia::TIMELINE_EVENTS
+            .iter()
+            .map(|(year, _title, _desc)| {
+                html! {
+                    <li class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-year">{ year }</div>
-                        <div class="timeline-event-title">{ title }</div>
-                        <p class="timeline-desc">{ desc }</p>
                     </li>
                 }
             })
@@ -43,7 +58,12 @@ impl Component for Timeline {
                         <span>{ t!("timeline.label") }</span>
                     </p>
                     <h2 class="chapter-title chapter-title-light reveal">{ t!("timeline.title") }</h2>
-                    <ol class="timeline-track">{ events }</ol>
+                    <div class="sticky-scroll-container">
+                        <div class="sticky-scroll-figure">
+                            <ol class="timeline-track">{ timeline_dots }</ol>
+                        </div>
+                        <div class="sticky-scroll-steps">{ step_cards }</div>
+                    </div>
                 </div>
             </section>
         }

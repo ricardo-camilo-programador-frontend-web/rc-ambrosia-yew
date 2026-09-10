@@ -31,7 +31,7 @@ impl Component for Mythology {
                         </p>
                         <h2 class="chapter-title chapter-title-light">{ t!("mythology.title") }</h2>
                         <p class="mythology-body">{ t!("mythology.body") }</p>
-                        <blockquote class="mythology-quote">{ t!("mythology.quote") }</blockquote>
+                        <blockquote class="pull-quote mythology-quote">{ t!("mythology.quote") }</blockquote>
                         <div class="mythology-seal">{ t!("mythology.seal") }</div>
                     </div>
                     <figure class="mythology-visual reveal-scale relative overflow-hidden rounded-2xl shadow-editorial">

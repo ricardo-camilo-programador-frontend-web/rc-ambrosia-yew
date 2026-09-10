@@ -98,6 +98,24 @@
     .scroll-indicator { display: none; }
 }
 
+/* Sticky scroll mobile fallback */
+@media (max-width: 968px) {
+    .sticky-scroll-container {
+        grid-template-columns: 1fr;
+    }
+    .sticky-scroll-figure {
+        position: relative;
+        top: auto;
+        height: auto;
+        margin-bottom: var(--space-lg);
+    }
+    .scroll-step {
+        opacity: 1;
+        transform: none;
+        border-left-color: var(--accent-gold);
+    }
+}
+
 /* Large desktop */
 @media (min-width: 1440px) {
     .chapter { padding: var(--space-3xl) var(--space-xl); }

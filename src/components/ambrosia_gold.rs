@@ -28,7 +28,7 @@ impl Component for AmbrosiaGold {
                             <span class="section-divider"></span>
                             <span>{ t!("gold.label") }</span>
                         </p>
-                        <h2 class="gold-title">{ t!("gold.title") }</h2>
+                        <h2 class="gold-title reveal">{ t!("gold.title") }</h2>
                         <p class="gold-intro">{ t!("gold.intro") }</p>
                         <div class="gold-cards">
                             <article class="premium-card reveal">
