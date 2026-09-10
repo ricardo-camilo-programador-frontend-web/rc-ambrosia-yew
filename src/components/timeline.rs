@@ -19,8 +19,10 @@ impl Component for Timeline {
         Self(handle)
     }
 
-    fn rendered(&mut self, _ctx: &Context<Self>, _first_render: bool) {
-        crate::hooks::use_sticky_scroll::setup_sticky_scroll();
+    fn rendered(&mut self, _ctx: &Context<Self>, first_render: bool) {
+        if first_render {
+            crate::hooks::use_sticky_scroll::setup_sticky_scroll();
+        }
     }
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
@@ -60,7 +62,7 @@ impl Component for Timeline {
                     <h2 class="chapter-title chapter-title-light reveal">{ t!("timeline.title") }</h2>
                     <div class="sticky-scroll-container">
                         <div class="sticky-scroll-figure">
-                            <ol class="timeline-track">{ timeline_dots }</ol>
+                            <ol class="timeline-track" aria-hidden="true">{ timeline_dots }</ol>
                         </div>
                         <div class="sticky-scroll-steps">{ step_cards }</div>
                     </div>

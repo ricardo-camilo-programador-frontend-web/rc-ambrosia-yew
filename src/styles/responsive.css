@@ -112,7 +112,7 @@
     .scroll-step {
         opacity: 1;
         transform: none;
-        border-left-color: var(--accent-gold);
+        border-inline-start-color: var(--accent-gold);
     }
 }
 
