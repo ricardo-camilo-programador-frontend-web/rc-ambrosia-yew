@@ -16,7 +16,7 @@ pub fn setup_scroll_reveal() {
         None => return,
     };
 
-    let selector = ".reveal, .reveal-left, .reveal-scale";
+    let selector = ".reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger";
 
     // Check reduced motion preference
     let prefers_reduced = window
