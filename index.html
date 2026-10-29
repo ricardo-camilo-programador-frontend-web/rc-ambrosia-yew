@@ -43,6 +43,7 @@
 
     <!-- Local static assets copied into dist by Trunk -->
     <link data-trunk rel="copy-dir" href="public/images" />
+    <link data-trunk rel="copy-dir" href="public/study" />
 
     <!-- CSS -->
     <link data-trunk rel="css" href="src/styles/tailwind.css" />
@@ -61,5 +62,6 @@
     <!-- Rust/WASM -->
     <link data-trunk rel="rust" data-bin="rc-ambrosia-yew" data-no-wasm-opt />
 </head>
-<body></body>
+<body>  <script src="/study/rc-study-modal.js" defer></script>
+</body>
 </html>
