@@ -51,6 +51,14 @@ cat > dist/index.html << 'HTMLEOF'
     {"@context":"https://schema.org","@type":"Article","headline":"Ambrosia — Food of the Gods","description":"An interactive editorial about the Ambrosia apple variety.","author":{"@type":"Person","name":"Ricardo Camilo"},"publisher":{"@type":"Person","name":"Ricardo Camilo"},"about":"Ambrosia Apple (Malus domestica)"}
     </script>
     <script src="https://cdn.counter.dev/script.js" data-id="f30df6f3-776d-4154-959d-0210ac8a8325" data-utcoffset="-3"></script>
+    <script src="https://www.clarity.ms/tag/vtlmgkvzek" async></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZGTXLX0G6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GZGTXLX0G6');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
