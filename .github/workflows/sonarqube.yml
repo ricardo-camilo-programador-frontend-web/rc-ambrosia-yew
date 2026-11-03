@@ -1,0 +1,84 @@
+name: SonarQube
+
+concurrency:
+  group: sonarqube-rc-ambrosia-yew
+  cancel-in-progress: false
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  sonarqube:
+    name: SonarQube Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+          targets: wasm32-unknown-unknown
+
+      - name: Run Clippy (JSON report)
+        run: cargo clippy --target wasm32-unknown-unknown --message-format=json > clippy-report.json || true
+
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: |
+          set -e
+
+          if [ -z "$SONAR_TOKEN" ] || [ -z "$SONAR_HOST_URL" ]; then
+            echo "::error::SONAR_TOKEN and SONAR_HOST_URL must be set as GitHub Secrets"
+            exit 1
+          fi
+
+          echo "Testing SonarQube connectivity..."
+          curl -f -s --max-time 10 "$SONAR_HOST_URL/api/system/status" >/dev/null || {
+            echo "::warning::Cannot connect to SonarQube at $SONAR_HOST_URL — skipping scan"
+            exit 0
+          }
+
+          echo "Running SonarQube scan..."
+
+          docker run --rm \
+            -v "$PWD:/usr/src" \
+            -w /usr/src \
+            -e SONAR_TOKEN="$SONAR_TOKEN" \
+            sonarsource/sonar-scanner-cli:latest \
+            -Dsonar.token="$SONAR_TOKEN" \
+            -Dsonar.host.url="$SONAR_HOST_URL" \
+            -Dsonar.rust.clippyReport.reportPaths=clippy-report.json
+
+          echo "SONAR_DASHBOARD_URL=$SONAR_HOST_URL/dashboard?id=rc-ambrosia-yew" >> $GITHUB_ENV
+
+      - name: Comment PR with SonarQube Dashboard Link
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@v4 # v4.0.0
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- sonarqube-analysis -->
+            ## 📊 SonarQube Analysis
+
+            **🔗 [Abrir dashboard](${{ env.SONAR_DASHBOARD_URL }})**
+
+            **Projeto:** `rc-ambrosia-yew`
+            **Branch:** `${{ github.head_ref }}`
+            **Commit:** `${{ github.sha }}`
+
+            ---
+            _Executado automaticamente via GitHub Actions_
