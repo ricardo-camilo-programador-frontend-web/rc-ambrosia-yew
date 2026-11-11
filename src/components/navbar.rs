@@ -5,6 +5,7 @@ use crate::i18n::I18nContext;
 
 pub struct Navbar {
     languages: Vec<(&'static str, &'static str)>,
+    menu_open: bool,
 }
 
 impl Component for Navbar {
@@ -35,26 +36,34 @@ impl Component for Navbar {
                 ("mr", "\u{1F1EE}\u{1F1F3} \u{092E}\u{0930}\u{093E}"),
                 ("pa", "\u{1F1EE}\u{1F1F3} \u{0A2A}\u{0A70}"),
             ],
+            menu_open: false,
         }
     }
 
     fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
             Msg::LanguageChanged(lang) => {
-                if let Some((_ctx, _handle)) = ctx.link().context::<I18nContext>(Callback::noop()) {
-                    _ctx.set_locale(&lang);
+                if let Some((i18n, _handle)) = ctx.link().context::<I18nContext>(Callback::noop()) {
+                    i18n.set_locale(&lang);
                 }
-                true // Force re-render
+                true
+            }
+            Msg::ToggleMenu => {
+                self.menu_open = !self.menu_open;
+                true
+            }
+            Msg::CloseMenu => {
+                self.menu_open = false;
+                true
             }
         }
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {
-        // Get current locale from context
         let current_locale = ctx
             .link()
             .context::<I18nContext>(Callback::noop())
-            .map(|(_ctx, _handle)| _ctx.locale.clone())
+            .map(|(i18n, _handle)| i18n.locale.clone())
             .unwrap_or_else(|| "en".to_string());
 
         let lang_options = self
@@ -65,16 +74,38 @@ impl Component for Navbar {
             })
             .collect::<Html>();
 
+        let close = ctx.link().callback(|_: MouseEvent| Msg::CloseMenu);
+        let menu_class = if self.menu_open {
+            "navbar-links is-open"
+        } else {
+            "navbar-links"
+        };
+        let toggle_label = if self.menu_open {
+            t!("nav.close")
+        } else {
+            t!("nav.menu")
+        };
+
         html! {
-            <nav class="navbar" role="navigation" aria-label="Main navigation">
-                <span class="navbar-brand">{"\u{1F34E} Ambrosia"}</span>
-                <ul class="navbar-links">
-                    <li><a href="#origin">{ t!("nav.origin") }</a></li>
-                    <li><a href="#timeline">{ t!("nav.timeline") }</a></li>
-                    <li><a href="#characteristics">{ t!("nav.characteristics") }</a></li>
-                    <li><a href="#mythology">{ t!("nav.mythology") }</a></li>
-                    <li><a href="#nutrition">{ t!("nav.nutrition") }</a></li>
-                    <li><a href="#series">{ t!("nav.series") }</a></li>
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="#hero" class="navbar-brand">{"\u{1F34E} Ambrosia"}</a>
+                <button
+                    type="button"
+                    class="nav-toggle"
+                    aria-expanded={self.menu_open.to_string()}
+                    aria-controls="primary-nav"
+                    onclick={ctx.link().callback(|_| Msg::ToggleMenu)}
+                >
+                    <span class="nav-toggle-icon" aria-hidden="true"></span>
+                    <span class="sr-only">{ toggle_label }</span>
+                </button>
+                <ul id="primary-nav" class={menu_class}>
+                    <li><a href="#origin" onclick={close.clone()}>{ t!("nav.origin") }</a></li>
+                    <li><a href="#timeline" onclick={close.clone()}>{ t!("nav.timeline") }</a></li>
+                    <li><a href="#characteristics" onclick={close.clone()}>{ t!("nav.characteristics") }</a></li>
+                    <li><a href="#mythology" onclick={close.clone()}>{ t!("nav.mythology") }</a></li>
+                    <li><a href="#nutrition" onclick={close.clone()}>{ t!("nav.nutrition") }</a></li>
+                    <li><a href="#series" onclick={close.clone()}>{ t!("nav.series") }</a></li>
                 </ul>
                 <div class="lang-switcher">
                     <select aria-label="Select language"
@@ -94,4 +125,6 @@ impl Component for Navbar {
 
 pub enum Msg {
     LanguageChanged(String),
+    ToggleMenu,
+    CloseMenu,
 }

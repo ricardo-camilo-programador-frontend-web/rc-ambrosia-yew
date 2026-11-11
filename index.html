@@ -53,6 +53,7 @@
     <link data-trunk rel="css" href="src/styles/components.css" />
     <link data-trunk rel="css" href="src/styles/animations.css" />
     <link data-trunk rel="css" href="src/styles/responsive.css" />
+    <link data-trunk rel="css" href="src/styles/product.css" />
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json" />
@@ -62,6 +63,13 @@
     <!-- Rust/WASM -->
     <link data-trunk rel="rust" data-bin="rc-ambrosia-yew" data-no-wasm-opt />
 </head>
-<body>  <script src="/study/rc-study-modal.js" defer></script>
+<body>
+    <div id="app">
+        <div class="boot" role="status" aria-live="polite">
+            <p class="boot-mark">Ambrosia</p>
+            <p class="boot-label">Food of the Gods</p>
+        </div>
+    </div>
+    <script src="/study/rc-study-modal.js" defer></script>
 </body>
 </html>
