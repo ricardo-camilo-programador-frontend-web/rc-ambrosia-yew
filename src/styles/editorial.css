@@ -2,7 +2,7 @@
 
 /* Chapter — base section */
 .chapter {
-    padding: var(--space-3xl) var(--space-lg);
+    padding: clamp(4.5rem, 8vw, 7rem) var(--space-lg);
     position: relative;
     overflow: hidden;
 }
@@ -51,26 +51,27 @@
     align-items: center;
     gap: var(--space-xs);
     font-size: var(--fs-label);
-    font-weight: 700;
-    letter-spacing: 0.15em;
+    font-weight: 650;
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
-    color: var(--accent-gold);
+    color: var(--color-honey-ink);
     margin-bottom: var(--space-sm);
 }
 
-.section-label-light { color: var(--accent-gold); }
+.section-label-light,
+.dark-section .section-label { color: var(--color-honey-glow); }
 
 .section-number {
     font-family: var(--font-mono);
     font-size: var(--fs-label);
-    color: var(--accent-gold);
+    color: inherit;
 }
 
 .section-divider {
     display: inline-block;
     width: 24px;
     height: 1px;
-    background: var(--accent-gold);
+    background: currentColor;
 }
 
 /* Chapter titles */
@@ -86,30 +87,31 @@
 
 /* Drop cap */
 .drop-cap::first-letter {
-    font-family: 'Cormorant Garamond', var(--font-serif);
-    font-size: 5.5rem;
+    font-family: var(--font-serif);
+    font-size: 4.6rem;
     line-height: 0.8;
     float: left;
-    margin-right: 0.75rem;
-    margin-top: 0.15rem;
-    color: var(--accent-red);
-    font-weight: 700;
-    text-shadow: 2px 2px 0 rgba(224, 184, 107, 0.15);
+    margin-right: 0.7rem;
+    margin-top: 0.2rem;
+    color: var(--color-apple);
+    font-weight: 560;
 }
 
 /* Pull quotes */
 .pull-quote {
-    font-family: 'Cormorant Garamond', var(--font-serif);
+    font-family: var(--font-serif);
     font-size: var(--fs-pull-quote);
+    font-weight: 500;
     font-style: italic;
-    color: var(--text-on-light);
-    border-left: 4px solid var(--accent-gold);
+    color: var(--color-ink);
+    border-left: 3px solid var(--color-honey-ink);
     padding: var(--space-md) var(--space-lg);
     margin: var(--space-lg) 0;
-    line-height: 1.4;
+    line-height: 1.35;
     position: relative;
-    background: var(--accent-gold-soft);
+    background: var(--color-paper-raised);
     border-radius: 0 var(--radius) var(--radius) 0;
+    max-width: 40rem;
 }
 
 .dark-section .pull-quote {
@@ -120,13 +122,14 @@
 /* Kicker — small bold text above titles */
 .kicker {
     font-size: var(--fs-kicker);
-    font-weight: 800;
-    letter-spacing: 0.2em;
+    font-weight: 650;
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
-    color: var(--accent-gold);
+    color: var(--color-honey-ink);
     margin-bottom: var(--space-xs);
     display: block;
 }
+.dark-section .kicker { color: var(--color-honey-glow); }
 
 /* Section transition divider */
 .section-transition {

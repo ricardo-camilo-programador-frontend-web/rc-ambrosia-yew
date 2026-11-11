@@ -39,7 +39,7 @@ cat > dist/index.html << 'HTMLEOF'
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ambrosia — Food of the Gods</title>
     <meta name="description" content="Discover the Ambrosia apple — a chance seedling from British Columbia, named after the food of the gods in Greek mythology." />
-    <meta name="theme-color" content="#C0392B" />
+    <meta name="theme-color" content="#14110E" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Ambrosia — Food of the Gods" />
     <meta property="og:description" content="A chance seedling from British Columbia, named after the mythical food that granted immortality." />
@@ -61,7 +61,7 @@ cat > dist/index.html << 'HTMLEOF'
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="tokens.css" />
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="editorial.css" />

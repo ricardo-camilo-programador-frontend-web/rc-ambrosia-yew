@@ -5,15 +5,15 @@ module.exports = {
     extend: {
       colors: {
         ambrosia: {
-          ink: "#0c0b09",
-          charcoal: "#1a1a1a",
-          gold: "#e0b86b",
-          crimson: "#9e3a3a",
-          cream: "#fff8e7"
+          ink: "#14110e",
+          charcoal: "#231c17",
+          gold: "#f0d09a",
+          crimson: "#8e2a24",
+          cream: "#f7f1e6"
         }
       },
       fontFamily: {
-        editorial: ["Cormorant Garamond", "Georgia", "serif"]
+        editorial: ["Fraunces", "Georgia", "serif"]
       },
       boxShadow: {
         editorial: "0 24px 60px rgba(0, 0, 0, 0.45)"
