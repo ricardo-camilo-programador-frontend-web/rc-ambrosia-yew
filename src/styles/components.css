@@ -418,7 +418,7 @@
 .parent-role {
     display: block;
     font-size: var(--fs-label);
-    color: var(--accent-gold);
+    color: var(--color-honey-ink);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: var(--space-xs);
@@ -789,7 +789,7 @@
 .variety-dot {
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: var(--accent-gold);
+    background: var(--color-honey-ink);
 }
 
 .current-variety .variety-dot { background: var(--accent-red); }
@@ -829,7 +829,7 @@
     border-bottom: 1px solid var(--text-on-light-muted);
 }
 
-.hub-link a:hover { color: var(--accent-gold); }
+.hub-link a:hover { color: var(--color-apple); }
 
 /* ─── Footer ─── */
 .footer {

@@ -23,7 +23,7 @@ rm -f dist/ambrosia-*.jpg dist/images/ATTRIBUTION.md 2>/dev/null || true  # Remo
 cp -r public/images/ATTRIBUTION.md dist/images/ 2>/dev/null || true
 
 # Copy CSS
-for css in tokens base editorial components animations responsive tailwind; do
+for css in tokens base editorial components animations responsive tailwind product; do
     cp src/styles/${css}.css dist/ 2>/dev/null || true
 done
 
@@ -39,7 +39,7 @@ cat > dist/index.html << 'HTMLEOF'
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ambrosia — Food of the Gods</title>
     <meta name="description" content="Discover the Ambrosia apple — a chance seedling from British Columbia, named after the food of the gods in Greek mythology." />
-    <meta name="theme-color" content="#C0392B" />
+    <meta name="theme-color" content="#14110E" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Ambrosia — Food of the Gods" />
     <meta property="og:description" content="A chance seedling from British Columbia, named after the mythical food that granted immortality." />
@@ -61,20 +61,32 @@ cat > dist/index.html << 'HTMLEOF'
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="tokens.css" />
+    <link rel="stylesheet" href="tailwind.css" />
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="editorial.css" />
     <link rel="stylesheet" href="components.css" />
     <link rel="stylesheet" href="animations.css" />
     <link rel="stylesheet" href="responsive.css" />
-    <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="product.css" />
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="apple-touch-icon" href="icon-192.png" />
-    <script type="module" src="rc-ambrosia-yew.js"></script>
 </head>
-<body></body>
+<body>
+    <div id="app">
+        <div class="boot" role="status" aria-live="polite">
+            <p class="boot-mark">Ambrosia</p>
+            <p class="boot-label">Food of the Gods</p>
+        </div>
+    </div>
+    <script src="/study/rc-study-modal.js" defer></script>
+    <script type="module">
+      import init from "./rc-ambrosia-yew.js";
+      init();
+    </script>
+</body>
 </html>
 HTMLEOF
 

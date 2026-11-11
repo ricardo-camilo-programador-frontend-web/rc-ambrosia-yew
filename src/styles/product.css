@@ -1,0 +1,502 @@
+/* Orchard Press — component layer
+   Product chrome, chapter rhythm, and surfaces. Loaded last. */
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+.light-section a:focus-visible,
+.light-section button:focus-visible,
+.light-section select:focus-visible {
+    outline-color: var(--color-focus-on-paper);
+}
+
+.navbar {
+    height: var(--nav-height);
+    padding: 0 var(--space-lg);
+    background: var(--nav-bg);
+    border-bottom: 0;
+    box-shadow: var(--shadow-nav);
+    gap: var(--space-sm);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 560;
+    letter-spacing: -0.03em;
+    color: var(--color-cream);
+}
+
+.navbar-links {
+    gap: var(--space-md);
+    margin-inline: auto;
+}
+
+.navbar-links a {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--color-cream-muted);
+}
+
+.navbar-links a:hover,
+.navbar-links a:focus-visible { color: var(--color-cream); }
+
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-line-night);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--color-cream);
+    cursor: pointer;
+}
+
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+    display: block;
+    width: 16px;
+    height: 1.5px;
+    background: currentColor;
+    border-radius: var(--radius-pill);
+    position: relative;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle-icon::before { top: -5px; }
+.nav-toggle-icon::after { top: 5px; }
+
+.lang-switcher select {
+    min-height: 44px;
+    color: var(--color-cream);
+    background: transparent;
+    border: 1px solid var(--color-line-night);
+    border-radius: var(--radius-pill);
+    padding: 0 0.85rem;
+}
+
+.hero {
+    min-height: 100svh;
+    background: var(--gradient-hero);
+    padding-top: var(--nav-height);
+}
+
+.hero-overlay {
+    background:
+        radial-gradient(ellipse at 78% 45%, rgba(240, 208, 154, 0.08), transparent 42%),
+        linear-gradient(90deg, rgba(20, 17, 14, 0.2), transparent 55%);
+}
+
+.hero-content { padding: var(--space-xl) var(--space-lg); }
+
+.hero-title {
+    font-family: var(--font-serif);
+    color: var(--color-cream);
+    background: none;
+    -webkit-text-fill-color: var(--color-cream);
+    letter-spacing: -0.045em;
+}
+
+.hero-subtitle {
+    color: var(--color-honey-glow);
+    letter-spacing: var(--tracking-label);
+}
+
+.hero-tagline { color: var(--color-cream-muted); }
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.5rem;
+    background: var(--color-apple);
+    color: #fff;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.12em;
+    box-shadow: none;
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+    background: var(--color-apple-deep);
+    color: #fff;
+    transform: none;
+    box-shadow: 0 10px 24px rgba(142, 42, 36, 0.28);
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+.hero-photo {
+    width: min(34vw, 400px);
+    border-radius: var(--radius-xl);
+    animation: none;
+    border: 1px solid var(--color-line-gold);
+    filter: none;
+    box-shadow: var(--shadow-deep);
+}
+
+.hero-photo-glow { display: none; }
+
+.scroll-indicator {
+    left: 50%;
+    right: auto;
+    bottom: var(--space-md);
+    transform: translateX(-50%);
+}
+
+.chapter-grid-two,
+.chapter-grid-map,
+.map-layout,
+.sticky-scroll-container,
+.footer-columns { min-width: 0; }
+
+.chapter-grid-two > *,
+.map-layout > *,
+.sticky-scroll-container > * { min-width: 0; }
+
+.chapter-title { letter-spacing: -0.035em; }
+
+.chapter-visual-col,
+.mythology-visual,
+.culinary-photo,
+.gold-photo {
+    min-height: 360px;
+    border: 0;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-deep);
+    background: var(--color-night-deep);
+}
+
+.chapter-visual-col > img,
+.mythology-visual > img,
+.culinary-photo > img,
+.gold-photo > img {
+    min-height: 360px;
+    filter: none;
+}
+
+.chapter-visual-col:hover > img,
+.mythology-visual:hover > img,
+.culinary-photo:hover > img,
+.gold-photo:hover > img { transform: none; filter: none; }
+
+.orchard-image::after,
+.mythology-visual::after,
+.culinary-photo::after,
+.gold-photo::after {
+    background: linear-gradient(180deg, transparent 52%, var(--color-scrim) 100%);
+}
+
+.orchard-image figcaption,
+.gold-photo figcaption {
+    color: var(--color-cream);
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    padding: 0.55rem 0.75rem;
+    background: var(--color-night);
+    border-radius: var(--radius);
+}
+
+.orchard-image figcaption span { color: var(--color-cream-muted); }
+
+.sticky-scroll-container {
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    min-height: 0;
+    align-items: start;
+}
+
+.sticky-scroll-figure {
+    position: sticky;
+    top: calc(var(--nav-height) + 1.5rem);
+    height: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.timeline-track {
+    flex-direction: column;
+    overflow: visible;
+    width: 100%;
+    margin-top: var(--space-md);
+    gap: 0;
+}
+
+.timeline-item {
+    flex: none;
+    width: 100%;
+    padding: 0 0 1.35rem 1.35rem;
+}
+
+.timeline-item::before {
+    top: 0.45rem;
+    left: 5px;
+    width: 2px;
+    height: calc(100% - 0.2rem);
+    background: var(--color-line-gold);
+}
+
+.timeline-dot {
+    top: 0.3rem;
+    left: 0;
+    background: var(--color-honey-glow);
+    box-shadow: none;
+}
+
+.sticky-scroll-steps { list-style: none; padding: 0; margin: 0; }
+
+.scroll-step {
+    opacity: 1;
+    transform: none;
+    border-inline-start: 2px solid var(--color-line-night);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.scroll-step.active {
+    background: rgba(246, 239, 228, 0.04);
+    border-inline-start-color: var(--color-honey-glow);
+}
+
+.timeline-year { color: var(--color-honey-glow); }
+.timeline-event-title { color: var(--color-cream); }
+.timeline-desc { color: var(--color-cream-muted); }
+
+.char-heading,
+.premium-heading,
+.accordion-number,
+.footer-col h3 { color: var(--color-honey-glow); }
+
+.char-text,
+.premium-card p,
+.gold-intro,
+.accordion-content p { color: var(--color-cream-muted); }
+
+.apple-large {
+    border: 0;
+    box-shadow: var(--shadow-deep);
+    filter: none;
+}
+
+.parent-node {
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-line-strong);
+    box-shadow: var(--shadow-card);
+    min-width: min(100%, 16rem);
+}
+
+.child-node {
+    border: 2px solid var(--color-apple);
+    background: var(--color-apple-soft);
+}
+
+.child-name { color: var(--color-apple) !important; }
+
+.pill-tag,
+.variety-pill {
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-line-strong);
+    color: var(--color-ink);
+}
+
+.current-variety {
+    border-color: var(--color-apple);
+    background: var(--color-apple-soft);
+}
+
+.variety-badge {
+    background: var(--color-apple);
+    color: #fff;
+}
+
+.variety-here { color: var(--color-apple); }
+
+.nutrition-section {
+    background:
+        linear-gradient(90deg, rgba(20, 17, 14, 0.94) 0%, rgba(20, 17, 14, 0.78) 46%, rgba(20, 17, 14, 0.55) 100%),
+        url("/images/ambrosia-hero.jpg") center / cover no-repeat;
+}
+
+.stat-card {
+    background: rgba(20, 17, 14, 0.9);
+    border: 1px solid var(--color-line-gold);
+    box-shadow: none;
+}
+
+.stat-value { color: var(--color-honey-glow); }
+.stat-label { color: var(--color-cream); }
+
+.world-map {
+    background: var(--color-paper-sunk);
+    border: 1px solid var(--color-line);
+}
+
+.region-panel {
+    background: var(--color-night);
+    color: var(--color-cream);
+}
+
+.region-name { color: var(--color-cream); }
+.region-detail { color: var(--color-cream-muted); }
+.region-item { border-bottom-color: var(--color-line-night); }
+
+.map-dot { fill: var(--color-apple); animation: none; }
+
+.accordion-card {
+    background: rgba(20, 17, 14, 0.45);
+    border: 1px solid var(--color-line-night);
+    border-radius: var(--radius);
+}
+
+.accordion-header {
+    min-height: 52px;
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+}
+
+.accordion-header:hover { background: rgba(246, 239, 228, 0.05); }
+.accordion-icon { color: var(--color-honey-glow); }
+
+.gold-section::before { inset: 0; left: 0; right: 0; }
+
+.gold-title {
+    font-family: var(--font-serif);
+    color: var(--color-cream);
+    background: none;
+    -webkit-text-fill-color: var(--color-cream);
+}
+
+.premium-card {
+    background: rgba(20, 17, 14, 0.45);
+    border: 1px solid var(--color-line-night);
+    border-radius: var(--radius);
+}
+
+.premium-card:hover { transform: none; border-color: var(--color-honey-glow); }
+
+.hub-link a {
+    color: var(--color-ink);
+    border-bottom-color: var(--color-honey-ink);
+    font-weight: 600;
+}
+
+.footer {
+    background: var(--color-night);
+    border-top: 1px solid var(--color-line-night);
+}
+
+.footer-title { color: var(--color-cream); }
+.footer-subtitle,
+.footer-col a,
+.footer-bottom p,
+.footer-social a { color: var(--color-cream-muted); }
+
+.footer-col a:hover,
+.footer-social a:hover { color: var(--color-cream); }
+
+.footer-social a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-line-night);
+    border-radius: var(--radius-pill);
+}
+
+.footer-bottom { border-top-color: var(--color-line-night); }
+
+.reading-progress {
+    height: 3px;
+    background: var(--color-apple);
+}
+
+@media (max-width: 968px) {
+    .nav-toggle { display: inline-flex; }
+
+    .navbar-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        margin: 0;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.4rem 0.75rem 0.9rem;
+        background: var(--color-night);
+        border-bottom: 1px solid var(--color-line-night);
+        z-index: 1001;
+    }
+
+    .navbar-links.is-open { display: flex; }
+
+    .navbar-links a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        color: var(--color-cream);
+    }
+
+    .hero-content {
+        padding-top: var(--space-xl);
+        text-align: start;
+    }
+
+    .hero-text { text-align: start; }
+    .hero-photo { width: min(78vw, 320px); }
+    .hero-cta { width: 100%; }
+
+    .sticky-scroll-container { grid-template-columns: 1fr; }
+    .sticky-scroll-figure { position: relative; top: auto; }
+}
+
+@media (max-width: 640px) {
+    .navbar { padding: 0 var(--space-sm); }
+    .chapter { padding-inline: var(--space-sm); }
+
+    .apple-diagram {
+        min-height: 0;
+        display: grid;
+        justify-items: center;
+        gap: 0.85rem;
+    }
+
+    .apple-large {
+        width: min(68vw, 240px);
+        height: auto;
+        margin: 0;
+    }
+
+    .annotation-line { display: none; }
+
+    .annotation-label,
+    .annotation-label-1,
+    .annotation-label-2,
+    .annotation-label-3 {
+        position: static;
+        width: min(100%, 28rem);
+        text-align: center;
+    }
+
+    .stat-grid { grid-template-columns: 1fr; }
+    .scroll-indicator { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-photo,
+    .scroll-line,
+    .map-dot,
+    .premium-card,
+    .chapter-visual-col > img { animation: none; transition: none; }
+}

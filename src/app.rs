@@ -1,3 +1,4 @@
+use rust_i18n::t;
 use yew::prelude::*;
 
 use crate::components::{
@@ -48,8 +49,17 @@ impl Component for App {
 
         html! {
             <ContextProvider<I18nContext> context={i18n_ctx}>
-                <a href="#article-content" class="skip-link">{"Skip to content"}</a>
-                <div class="reading-progress" id="reading-progress" style="width: 0%"></div>
+                <a href="#article-content" class="skip-link">{ t!("a11y.skip") }</a>
+                <div
+                    class="reading-progress"
+                    id="reading-progress"
+                    role="progressbar"
+                    aria-label={t!("a11y.progress").to_string()}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    style="width: 0%"
+                ></div>
                 <Navbar />
                 <main id="article-content">
                     <Hero />
