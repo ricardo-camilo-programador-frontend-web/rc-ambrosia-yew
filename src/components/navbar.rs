@@ -1,4 +1,6 @@
 use rust_i18n::t;
+use wasm_bindgen::closure::Closure;
+use wasm_bindgen::JsCast;
 use yew::prelude::*;
 
 use crate::i18n::I18nContext;
@@ -53,10 +55,32 @@ impl Component for Navbar {
                 true
             }
             Msg::CloseMenu => {
+                if !self.menu_open {
+                    return false;
+                }
                 self.menu_open = false;
                 true
             }
         }
+    }
+
+    fn rendered(&mut self, ctx: &Context<Self>, first_render: bool) {
+        if !first_render {
+            return;
+        }
+        let link = ctx.link().clone();
+        let on_key = Closure::<dyn FnMut(web_sys::KeyboardEvent)>::new(
+            move |event: web_sys::KeyboardEvent| {
+                if event.key() == "Escape" {
+                    link.send_message(Msg::CloseMenu);
+                }
+            },
+        );
+        if let Some(window) = web_sys::window() {
+            let _ =
+                window.add_event_listener_with_callback("keydown", on_key.as_ref().unchecked_ref());
+        }
+        on_key.forget();
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {

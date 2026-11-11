@@ -82,16 +82,22 @@ impl Component for Culinary {
         let cards = items.into_iter().enumerate().map(|(i, (title, desc))| {
             let is_open = self.open_index == Some(i);
             let cls = if is_open { "accordion-content open" } else { "accordion-content" };
+            let panel_id = format!("culinary-panel-{i}");
             html! {
                 <div class="accordion-card reveal">
-                    <button class="accordion-header"
-                        onclick={ctx.link().callback(move |_| CulinaryMsg::Toggle(i))}
-                        aria-expanded={is_open.to_string()}>
+                    <button
+                        type="button"
+                        class="accordion-header"
+                        aria-expanded={is_open.to_string()}
+                        aria-controls={panel_id.clone()}
+                        onclick={ctx.link().callback(move |_| CulinaryMsg::Toggle(i))}>
                         <span class="accordion-number">{ format!("{}", i + 1) }</span>
                         <span class="accordion-title">{ title }</span>
-                        <span class={if is_open { "accordion-icon open" } else { "accordion-icon" }}>{ "+" }</span>
+                        <span class={if is_open { "accordion-icon open" } else { "accordion-icon" }} aria-hidden="true">{ "+" }</span>
                     </button>
-                    <div class={cls}><p>{ desc }</p></div>
+                    <div id={panel_id} class={cls} role="region" aria-hidden={(!is_open).to_string()}>
+                        <p>{ desc }</p>
+                    </div>
                 </div>
             }
         }).collect::<Html>();

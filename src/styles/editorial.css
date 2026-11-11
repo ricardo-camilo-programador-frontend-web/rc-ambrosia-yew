@@ -224,8 +224,8 @@
 
 .skip-link:focus {
     left: 1rem; top: 1rem;
-    background: var(--accent-gold);
-    color: var(--ambrosia-near-black);
+    background: var(--color-honey-glow);
+    color: var(--color-ink);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius);
     font-weight: 600;

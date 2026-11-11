@@ -30,11 +30,11 @@ impl Component for Timeline {
             .iter()
             .map(|(year, title, desc)| {
                 html! {
-                    <div class="scroll-step">
+                    <li class="scroll-step">
                         <div class="timeline-year">{ year }</div>
                         <h3 class="timeline-event-title">{ title }</h3>
                         <p class="timeline-desc">{ desc }</p>
-                    </div>
+                    </li>
                 }
             })
             .collect::<Html>();
@@ -64,7 +64,7 @@ impl Component for Timeline {
                         <div class="sticky-scroll-figure">
                             <ol class="timeline-track" aria-hidden="true">{ timeline_dots }</ol>
                         </div>
-                        <div class="sticky-scroll-steps">{ step_cards }</div>
+                        <ol class="sticky-scroll-steps">{ step_cards }</ol>
                     </div>
                 </div>
             </section>

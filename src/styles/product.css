@@ -1,6 +1,19 @@
 /* Orchard Press — component layer
    Product chrome, chapter rhythm, and surfaces. Loaded last. */
 
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+.light-section a:focus-visible,
+.light-section button:focus-visible,
+.light-section select:focus-visible {
+    outline-color: var(--color-focus-on-paper);
+}
+
 .navbar {
     height: var(--nav-height);
     padding: 0 var(--space-lg);
@@ -123,6 +136,8 @@
     color: #fff;
     transform: none;
     box-shadow: 0 10px 24px rgba(142, 42, 36, 0.28);
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
 }
 
 .hero-photo {
@@ -187,7 +202,14 @@
 }
 
 .orchard-image figcaption,
-.gold-photo figcaption { color: var(--color-cream); }
+.gold-photo figcaption {
+    color: var(--color-cream);
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    padding: 0.55rem 0.75rem;
+    background: var(--color-night);
+    border-radius: var(--radius);
+}
 
 .orchard-image figcaption span { color: var(--color-cream-muted); }
 
@@ -233,6 +255,8 @@
     background: var(--color-honey-glow);
     box-shadow: none;
 }
+
+.sticky-scroll-steps { list-style: none; padding: 0; margin: 0; }
 
 .scroll-step {
     opacity: 1;
